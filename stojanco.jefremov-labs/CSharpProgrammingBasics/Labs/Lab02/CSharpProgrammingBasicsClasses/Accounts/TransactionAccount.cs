@@ -1,4 +1,5 @@
 ﻿using CSharpProgrammingBasics.Classes.Common;
+using CSharpProgrammingBasics.Classes.Helpers;
 using CSharpProgrammingBasics.Classes.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,11 @@ namespace CSharpProgrammingBasics.Classes.Accounts
             tempAmount.Amount = limitAmount;
             tempAmount.Currency = currency;
             this.Limit = tempAmount;
+        }
+
+        protected override string GenerateAccountNumber()
+        {
+            return AccountHelper.GenerateAccountNumber(this.GetType(), this.Id);
         }
     }
 }

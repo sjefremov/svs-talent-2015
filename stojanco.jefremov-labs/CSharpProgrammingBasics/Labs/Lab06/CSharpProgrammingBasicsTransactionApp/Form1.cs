@@ -25,7 +25,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         private void btnCreateTransactionAccount_Click(object sender, EventArgs e)
         {
             _transactionAccount = new TransactionAccount(txtAccountCurrency.Text, Decimal.Parse(txtAccountLimit.Text));
-            this.PopulateAccountLabels(_transactionAccount);
+            this.PopulateTransactionAccountLabels(_transactionAccount);
             //this.PopulateTransactionAccountLabels(_transactionAccount);
         }
         /// <summary>
@@ -42,6 +42,19 @@ namespace CSharpProgrammingBasicsTransactionApp
             //this.populateDepositAccountLabels(account);
         }
         /// <summary>
+        /// Receives a parameter of type Account and populates the Account_To common labels.
+        /// </summary>
+        /// <param name="account"></param>
+        private void PopulateAccount_ToLabels(IAccount account)
+        {
+            lbl_ToAccountIdValue.Text = account.Id.ToString();
+            lbl_ToAccountNumberValue.Text = account.Number;
+            lbl_ToAccountCurrencyValue.Text = account.Currency;
+            lbl_ToAccountBalanceValue.Text = account.Balance.Amount.ToString();
+            //this.PopulateTransactionAccountLabels(account);
+            //this.populateDepositAccountLabels(account);
+        }
+        /// <summary>
         /// Checks if the account parameter is a TransactionAccount and if this is true will populate the TransactionAccount specific labels.
         /// Otherwise it will clear the TransactionAccount specific labels.
         /// </summary>
@@ -53,15 +66,25 @@ namespace CSharpProgrammingBasicsTransactionApp
                 ITransactionAccount transactionAccount = (TransactionAccount)account;
                 lblTransactionAccountLimitValue.Text = transactionAccount.Limit.Amount.ToString();
                 lblTransactionAccountLimitCurrencyValue.Text = transactionAccount.Limit.Currency;
+                this.PopulateAccountLabels(account);
             }
             else
             {
                 lblTransactionAccountLimitValue.Text = "";
                 lblTransactionAccountLimitCurrencyValue.Text = "";
-            }
+            }            
         }
 
         private void btnCreateDepositAccount_Click(object sender, EventArgs e)
+        {
+            DepositAccount depositAccount = this.CreateDepositAccount();
+            this.populateDepositAccountLabels(depositAccount);
+        }
+        /// <summary>
+        /// Returns new instance of the DepositAccount class created from the values entered from the user.
+        /// </summary>
+        /// <returns></returns>
+        private DepositAccount CreateDepositAccount()
         {
             TimePeriod depositPeriod = new TimePeriod();
             //TODO Should not we calculate the period from difference between startDate and endDate instead of entering it.
@@ -71,10 +94,30 @@ namespace CSharpProgrammingBasicsTransactionApp
             interestRate.Percent = Decimal.Parse(txtDepositAccountInterestPercent.Text);
             interestRate.Unit = (UnitOfTime)cmbDepositAccountInterestUnit.SelectedItem;
             //TODO Where do we get from values for depositAccount.currency and depositAccount.TransactionAccount. Aren't we duplicating values for currency?
-            DepositAccount depositAccount = new DepositAccount(txtAccountCurrency.Text, 
+            DepositAccount depositAccount = new DepositAccount(txtAccountCurrency.Text,
                 depositPeriod, interestRate, dtpDepositAccountStartDate.Value, dtpDepositAccountEndDate.Value,
                     _transactionAccount);
-            //this.populateDepositAccountLabels(depositAccount);
+            return depositAccount;
+        }
+
+        /// <summary>
+        /// Returns new instance of the DepositAccount class created from the values entered from the user.
+        /// </summary>
+        /// <returns></returns>
+        private LoanAccount CreateLoanAccount()
+        {
+            TimePeriod depositPeriod = new TimePeriod();
+            //TODO Should not we calculate the period from difference between startDate and endDate instead of entering it.
+            depositPeriod.Period = Int32.Parse(txtDepositAccountPeriodAmount.Text);
+            depositPeriod.Unit = (UnitOfTime)cmbDepositAccountPeriodUnit.SelectedItem;
+            InterestRate interestRate = new InterestRate();
+            interestRate.Percent = Decimal.Parse(txtDepositAccountInterestPercent.Text);
+            interestRate.Unit = (UnitOfTime)cmbDepositAccountInterestUnit.SelectedItem;
+            //TODO Where do we get from values for depositAccount.currency and depositAccount.TransactionAccount. Aren't we duplicating values for currency?
+            LoanAccount loanAccount = new LoanAccount(txtAccountCurrency.Text,
+                depositPeriod, interestRate, dtpDepositAccountStartDate.Value, dtpDepositAccountEndDate.Value,
+                    _transactionAccount);
+            return loanAccount;
         }
         /// <summary>
         /// Checks if the account parameter is a DepositAccount and if this is true will populate the DepositAccount specific labels.
@@ -92,6 +135,7 @@ namespace CSharpProgrammingBasicsTransactionApp
                 lblDepositAccountPeriodAmountValue.Text = depositAccount.Period.Period.ToString();
                 lblDepositAccountPeriodUnitValue.Text = depositAccount.Period.Unit.ToString();
                 lblDepositAccountStartDateValue.Text = depositAccount.StartDate.ToShortDateString();
+                this.PopulateAccountLabels(depositAccount);
             }
             else
             {
@@ -117,24 +161,24 @@ namespace CSharpProgrammingBasicsTransactionApp
 
         private void btnMakeTransaction_Click(object sender, EventArgs e)
         {
-            ITransactionAccount transactionAccount = new TransactionAccount("MKD", 100000);
-            TimePeriod timePeriod = new TimePeriod();
-            timePeriod.Period = 1;
-            timePeriod.Unit = UnitOfTime.Year;
-            InterestRate interestRate = new InterestRate();
-            interestRate.Percent = 0.5M;
-            interestRate.Unit = UnitOfTime.Month;
-            IDepositAccount depositAccount = new DepositAccount("MKD", timePeriod, interestRate,
-                DateTime.Now, new DateTime(2016,4,10),transactionAccount);
+            //ITransactionAccount transactionAccount = new TransactionAccount("MKD", 100000);
+            //TimePeriod timePeriod = new TimePeriod();
+            //timePeriod.Period = 1;
+            //timePeriod.Unit = UnitOfTime.Year;
+            //InterestRate interestRate = new InterestRate();
+            //interestRate.Percent = 0.5M;
+            //interestRate.Unit = UnitOfTime.Month;
+            ILoanAccount loanAccount = CreateLoanAccount();
+            IDepositAccount depositAccount = CreateDepositAccount();
             ITransactionProcessor transactionProcessor = new TransactionProcessor();
             CurrencyAmount currencyAmmount = new CurrencyAmount();
             currencyAmmount.Amount = 20000;
             currencyAmmount.Currency = "MKD";
-            TransactionStatus transactionStatus = transactionProcessor.ProcessTransaction(TransactionType.Transfer, currencyAmmount, transactionAccount, depositAccount);
+            TransactionStatus transactionStatus = transactionProcessor.ProcessTransaction(TransactionType.Transfer, currencyAmmount, loanAccount, depositAccount);
             if (transactionStatus == TransactionStatus.Completed)
             {
-                this.PopulateAccountLabels(transactionAccount);
-                this.PopulateTransactionAccountLabels(transactionAccount);
+                this.PopulateAccountLabels(loanAccount);
+                this.PopulateAccount_ToLabels(depositAccount);
                 this.populateDepositAccountLabels(depositAccount);
             }
             else

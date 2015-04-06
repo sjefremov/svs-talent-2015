@@ -51,6 +51,7 @@
     <Compile Include="Accounts\Account.cs" />
     <Compile Include="Accounts\DepositAccount.cs" />
     <Compile Include="Accounts\LoanAccount.cs" />
+    <Compile Include="Helpers\AccountHelper.cs" />
     <Compile Include="Interfaces\IDepositAccount.cs" />
     <Compile Include="Accounts\TransactionAccount.cs" />
     <Compile Include="Class1.cs" />

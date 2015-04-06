@@ -1,4 +1,5 @@
 ﻿using CSharpProgrammingBasics.Classes.Common;
+using CSharpProgrammingBasics.Classes.Helpers;
 using CSharpProgrammingBasics.Classes.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -71,7 +72,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         /// <param name="currency"></param>
         public Account(string currency):this(-1,"X",currency)
         {
-
+            this.Id = AccountHelper.GenerateAccountId();
+            this.Number = this.GenerateAccountNumber();
         }
         #region PublicMethods
         /// <summary>
@@ -80,7 +82,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public TransactionStatus DebitAmount(CurrencyAmount amount)
+        public virtual TransactionStatus DebitAmount(CurrencyAmount amount)
         {
             if (!sameCurrencies(amount))
             {
@@ -100,7 +102,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public TransactionStatus CreditAmount(CurrencyAmount amount)
+        public virtual TransactionStatus CreditAmount(CurrencyAmount amount)
         {
             if (!sameCurrencies(amount))
             {
@@ -126,5 +128,6 @@ namespace CSharpProgrammingBasics.Classes.Accounts
             return this.Currency.Equals(amount.Currency);
         }
         #endregion
+        protected abstract string GenerateAccountNumber();
     }
 }

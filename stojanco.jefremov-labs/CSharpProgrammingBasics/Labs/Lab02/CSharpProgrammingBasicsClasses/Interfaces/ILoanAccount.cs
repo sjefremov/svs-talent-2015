@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpProgrammingBasics.Classes.Interfaces
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ILoanAccount:IDepositAccount
     {
     }

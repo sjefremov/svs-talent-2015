@@ -1,4 +1,5 @@
 ﻿using CSharpProgrammingBasics.Classes.Common;
+using CSharpProgrammingBasics.Classes.Helpers;
 using CSharpProgrammingBasics.Classes.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -74,6 +75,11 @@ namespace CSharpProgrammingBasics.Classes.Accounts
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.TransactionAccount = transactionAccount;
+        }
+
+        protected override string GenerateAccountNumber()
+        {
+            return AccountHelper.GenerateAccountNumber(this.GetType(), this.Id);
         }
     }
 }
