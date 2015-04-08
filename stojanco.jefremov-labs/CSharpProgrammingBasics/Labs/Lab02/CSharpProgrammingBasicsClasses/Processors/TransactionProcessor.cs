@@ -1,6 +1,7 @@
 ﻿using CSharpProgrammingBasics.Classes.Common;
 using CSharpProgrammingBasics.Classes.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,16 @@ namespace CSharpProgrammingBasics.Classes.Processors
     /// </summary>
     public class TransactionProcessor:ITransactionProcessor
     {
+        private static TransactionProcessor _transactionProcessorInstance;
+        static TransactionProcessor()
+        {
+            _transactionProcessorInstance = new TransactionProcessor();
+        }
+        private IList _transactionLog;
+        private TransactionProcessor ()
+	    {
+            _transactionLog = new ArrayList();
+	    }
         /// <summary>
         ///For Transfer type of transaction the DebitAmount method is called on the account passed in the accountFrom parameter and the CreditAmount method is called on the account passed in the accountTo parameter.
         ///For Debit type of transaction the DebitAmount method is called on the account passed in the AccountFrom parameter.
@@ -51,7 +62,141 @@ namespace CSharpProgrammingBasics.Classes.Processors
                     transactionStatus = TransactionStatus.Failed;
                     break;
             }
+            IAccount[] accounts = new IAccount[2] {accountFrom, accountTo};
+            this.LogTransaction(transactionType, amount, accounts, transactionStatus);
             return transactionStatus;
+        }
+
+        /// <summary>
+        /// First checks if the provided transaction type is Credit or Debit and if it is not returns TransactionFailed.
+        /// - For the Credit/Debit transaction type itterates through the accounts in the array and for each account calls the CreditAmount/DebitAmount appropriately.
+        /// If accounts is null returns TransactionFailed.
+        /// If some of the accounts is null returns TransactionCompletedWithWarning.
+        /// If all of the accounts are null returns TransactionFailed.
+        /// </summary>
+        /// <param name="transactionType"></param>
+        /// <param name="amount"></param>
+        /// <param name="accounts"></param>
+        /// <returns></returns>
+        public TransactionStatus ProcessGroupTransaction(TransactionType transactionType, CurrencyAmount amount, IAccount[] accounts)
+        {
+            TransactionStatus transactionStatus = TransactionStatus.InProcess;
+            if ((accounts == null))
+            {
+                transactionStatus = TransactionStatus.Failed;
+            }
+            if ((transactionType != TransactionType.Credit) && (transactionType != TransactionType.Debit))
+            {
+                transactionStatus = TransactionStatus.Failed;
+            }
+            else if (transactionStatus != TransactionStatus.Failed)
+            {
+                foreach (IAccount account in accounts)
+                {
+                    if (account == null)
+                    {
+                        if ((transactionStatus == TransactionStatus.Completed) || (transactionStatus == TransactionStatus.CompletedWithWarning))
+	                    {
+		                    transactionStatus = TransactionStatus.CompletedWithWarning;
+	                    }
+                        else
+	                    {
+                            transactionStatus = TransactionStatus.Failed;
+	                    }
+                        continue;
+                    }
+                    if (transactionType == TransactionType.Credit)
+                    {
+                            account.CreditAmount(amount);
+                    }
+                    else
+	                {
+                            account.DebitAmount(amount);
+	                }
+                           
+                    if ((transactionStatus == TransactionStatus.Failed) || (transactionStatus == TransactionStatus.CompletedWithWarning))
+                    {
+                        transactionStatus = TransactionStatus.CompletedWithWarning;
+                    }
+                    else
+                    {
+                        transactionStatus = TransactionStatus.Completed;
+                    }
+                }
+            }
+            this.LogTransaction(transactionType, amount, accounts, transactionStatus);
+            return transactionStatus;
+        }
+        /// <summary>
+        /// Creates an instance of the TransactionLogEntry class and add this instance in the _transactionLog collection.
+        /// </summary>
+        /// <param name="transactionType"></param>
+        /// <param name="amount"></param>
+        /// <param name="accounts"></param>
+        /// <param name="transactionStatus"></param>
+        /// <returns></returns>
+        private TransactionLogEntry LogTransaction(TransactionType transactionType, CurrencyAmount amount, IAccount[] accounts, TransactionStatus transactionStatus)
+        {
+            TransactionLogEntry transactionLogEntry = new TransactionLogEntry();
+            transactionLogEntry.Accounts = accounts;
+            transactionLogEntry.Amount = amount;
+            transactionLogEntry.Status = transactionStatus;
+            transactionLogEntry.TransactionType = transactionType;
+            _transactionLog.Add(transactionLogEntry);
+            return transactionLogEntry;
+        }
+
+        /// <summary>
+        /// If the _transactionLog does not contain entries then returns null.
+        /// </summary>
+        public TransactionLogEntry LastTransaction
+        {
+            get 
+            {
+                if (_transactionLog.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    //TODO Check TransactionLogEntry indexer implementation
+                    return this[_transactionLog.Count - 1];
+                }
+            }
+        }
+        /// <summary>
+        /// Counts how many transactions were executed so far.
+        /// </summary>
+        public int TransactionCount
+        {
+            get { return _transactionLog.Count; }
+        }
+        /// <summary>
+        /// Returns the TransactionLogEntry at the specified index by the indexer parameter. Checks if the index is out of bounds of the collection and if this is the case returns null.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public TransactionLogEntry this[int index]
+        {
+            get 
+            {
+                try
+                {
+                    return _transactionLog[index] as TransactionLogEntry;
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    return null;
+                }
+            }
+        }
+        /// <summary>
+        /// Create an instance that implements of the TransactionProcesor class using the Singleton pattern.
+        /// </summary>
+        /// <returns></returns>
+        public static TransactionProcessor GetTransactionProcessor()
+        {
+            return _transactionProcessorInstance;
         }
     }
 }

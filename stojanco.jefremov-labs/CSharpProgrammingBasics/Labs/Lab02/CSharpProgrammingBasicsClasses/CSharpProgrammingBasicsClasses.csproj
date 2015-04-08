@@ -65,6 +65,7 @@
     <Compile Include="Interfaces\ILoanAccount.cs" />
     <Compile Include="Interfaces\ITransactionAccount.cs" />
     <Compile Include="Interfaces\ITransactionProcessor.cs" />
+    <Compile Include="Processors\TransactionLogEntry.cs" />
     <Compile Include="Processors\TransactionProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

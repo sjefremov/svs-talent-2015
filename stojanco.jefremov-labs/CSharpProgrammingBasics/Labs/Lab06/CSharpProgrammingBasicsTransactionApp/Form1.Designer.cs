@@ -87,6 +87,11 @@
             this.lbl_ToAccountNumberValue = new System.Windows.Forms.Label();
             this.lbl_ToAccountIdValue = new System.Windows.Forms.Label();
             this.btnMakeTransaction = new System.Windows.Forms.Button();
+            this.btnMakeGroupTransaction = new System.Windows.Forms.Button();
+            this.lblTotalTransactionCount = new System.Windows.Forms.Label();
+            this.lblTotalTransactionCountValue = new System.Windows.Forms.Label();
+            this.lblTransactionLogEntryDetails = new System.Windows.Forms.Label();
+            this.lblTransactionLogEntryDetailsValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreateTransactionAccount
@@ -597,11 +602,60 @@
             this.btnMakeTransaction.UseVisualStyleBackColor = true;
             this.btnMakeTransaction.Click += new System.EventHandler(this.btnMakeTransaction_Click);
             // 
+            // btnMakeGroupTransaction
+            // 
+            this.btnMakeGroupTransaction.Location = new System.Drawing.Point(29, 389);
+            this.btnMakeGroupTransaction.Name = "btnMakeGroupTransaction";
+            this.btnMakeGroupTransaction.Size = new System.Drawing.Size(165, 23);
+            this.btnMakeGroupTransaction.TabIndex = 63;
+            this.btnMakeGroupTransaction.Text = "Make Group Transaction";
+            this.btnMakeGroupTransaction.UseVisualStyleBackColor = true;
+            this.btnMakeGroupTransaction.Click += new System.EventHandler(this.btnMakeGroupTransaction_Click);
+            // 
+            // lblTotalTransactionCount
+            // 
+            this.lblTotalTransactionCount.AutoSize = true;
+            this.lblTotalTransactionCount.Location = new System.Drawing.Point(523, 21);
+            this.lblTotalTransactionCount.Name = "lblTotalTransactionCount";
+            this.lblTotalTransactionCount.Size = new System.Drawing.Size(121, 13);
+            this.lblTotalTransactionCount.TabIndex = 64;
+            this.lblTotalTransactionCount.Text = "Total Transaction Count";
+            // 
+            // lblTotalTransactionCountValue
+            // 
+            this.lblTotalTransactionCountValue.AutoSize = true;
+            this.lblTotalTransactionCountValue.Location = new System.Drawing.Point(651, 21);
+            this.lblTotalTransactionCountValue.Name = "lblTotalTransactionCountValue";
+            this.lblTotalTransactionCountValue.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalTransactionCountValue.TabIndex = 65;
+            // 
+            // lblTransactionLogEntryDetails
+            // 
+            this.lblTransactionLogEntryDetails.AutoSize = true;
+            this.lblTransactionLogEntryDetails.Location = new System.Drawing.Point(526, 49);
+            this.lblTransactionLogEntryDetails.Name = "lblTransactionLogEntryDetails";
+            this.lblTransactionLogEntryDetails.Size = new System.Drawing.Size(146, 13);
+            this.lblTransactionLogEntryDetails.TabIndex = 66;
+            this.lblTransactionLogEntryDetails.Text = "Transaction Log Entry Details";
+            // 
+            // lblTransactionLogEntryDetailsValue
+            // 
+            this.lblTransactionLogEntryDetailsValue.AutoSize = true;
+            this.lblTransactionLogEntryDetailsValue.Location = new System.Drawing.Point(526, 78);
+            this.lblTransactionLogEntryDetailsValue.Name = "lblTransactionLogEntryDetailsValue";
+            this.lblTransactionLogEntryDetailsValue.Size = new System.Drawing.Size(0, 13);
+            this.lblTransactionLogEntryDetailsValue.TabIndex = 67;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 502);
+            this.Controls.Add(this.lblTransactionLogEntryDetailsValue);
+            this.Controls.Add(this.lblTransactionLogEntryDetails);
+            this.Controls.Add(this.lblTotalTransactionCountValue);
+            this.Controls.Add(this.lblTotalTransactionCount);
+            this.Controls.Add(this.btnMakeGroupTransaction);
             this.Controls.Add(this.btnMakeTransaction);
             this.Controls.Add(this.lbl_ToAccountBalance);
             this.Controls.Add(this.lbl_ToAccountNumber);
@@ -730,6 +784,11 @@
         private System.Windows.Forms.Label lbl_ToAccountNumberValue;
         private System.Windows.Forms.Label lbl_ToAccountIdValue;
         private System.Windows.Forms.Button btnMakeTransaction;
+        private System.Windows.Forms.Button btnMakeGroupTransaction;
+        private System.Windows.Forms.Label lblTotalTransactionCount;
+        private System.Windows.Forms.Label lblTotalTransactionCountValue;
+        private System.Windows.Forms.Label lblTransactionLogEntryDetails;
+        private System.Windows.Forms.Label lblTransactionLogEntryDetailsValue;
     }
 }
 

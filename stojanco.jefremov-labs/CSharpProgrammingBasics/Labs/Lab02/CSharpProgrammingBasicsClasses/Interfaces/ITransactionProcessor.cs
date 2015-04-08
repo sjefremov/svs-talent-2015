@@ -1,4 +1,5 @@
 ﻿using CSharpProgrammingBasics.Classes.Common;
+using CSharpProgrammingBasics.Classes.Processors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,18 @@ namespace CSharpProgrammingBasics.Classes.Interfaces
         /// <returns></returns>
         TransactionStatus ProcessTransaction(TransactionType transactionType, 
             CurrencyAmount amount, IAccount accountFrom, IAccount accountTo);
+        TransactionStatus ProcessGroupTransaction(TransactionType transactionType, CurrencyAmount amount, IAccount[] accounts);
+        TransactionLogEntry LastTransaction
+        {
+            get;
+        }
+        int TransactionCount
+        {
+            get;
+        }
+        TransactionLogEntry this[int index]
+        {
+            get;
+        }
     }
 }

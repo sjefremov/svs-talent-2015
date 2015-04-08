@@ -170,21 +170,74 @@ namespace CSharpProgrammingBasicsTransactionApp
             //interestRate.Unit = UnitOfTime.Month;
             ILoanAccount loanAccount = CreateLoanAccount();
             IDepositAccount depositAccount = CreateDepositAccount();
-            ITransactionProcessor transactionProcessor = new TransactionProcessor();
+            ITransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
             CurrencyAmount currencyAmmount = new CurrencyAmount();
             currencyAmmount.Amount = 20000;
             currencyAmmount.Currency = "MKD";
             TransactionStatus transactionStatus = transactionProcessor.ProcessTransaction(TransactionType.Transfer, currencyAmmount, loanAccount, depositAccount);
             if (transactionStatus == TransactionStatus.Completed)
             {
-                this.PopulateAccountLabels(loanAccount);
-                this.PopulateAccount_ToLabels(depositAccount);
+                //this.PopulateAccountLabels(loanAccount);
+                //this.PopulateAccount_ToLabels(depositAccount);
+                this.DisplayLastTransactionDetails();
                 this.populateDepositAccountLabels(depositAccount);
             }
             else
             {
                 MessageBox.Show("Transaction was not completed because of transaction status = " + transactionStatus);
             }
+        }
+
+        private void btnMakeGroupTransaction_Click(object sender, EventArgs e)
+        {
+            IAccount[] accounts = new IAccount[2];
+            IDepositAccount depositAccount = this.CreateDepositAccount();
+            ILoanAccount loanAccount = this.CreateLoanAccount();
+            accounts[0] = depositAccount;
+            accounts[1] = loanAccount;
+            ITransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
+            //TODO Should not we take the amount values from the user???
+            CurrencyAmount currencyAmount = new CurrencyAmount();
+            currencyAmount.Amount = 100000;
+            currencyAmount.Currency = "MKD";
+            //Testing cases
+            //accounts = null;
+            //accounts = new IAccount[2];
+            //accounts[0] = null;
+            //accounts[1] = null;
+            TransactionStatus transactionStatus = transactionProcessor.ProcessGroupTransaction(TransactionType.Debit, currencyAmount, accounts);
+            if (transactionStatus == TransactionStatus.Completed)
+            {
+                //this.PopulateAccountLabels(accounts[0]);
+                //this.PopulateAccount_ToLabels(accounts[1]);
+                this.DisplayLastTransactionDetails();
+            }
+            else if (transactionStatus == TransactionStatus.Failed)
+            {
+                MessageBox.Show("Group Transaction was not completed because of transaction status = " + transactionStatus);
+            }
+            else
+            {
+                MessageBox.Show("Group Transaction was not fully completed because of transaction status = " + transactionStatus);
+            }
+        }
+        private void DisplayLastTransactionDetails()
+        {
+            TransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
+            int count = transactionProcessor.TransactionCount;
+            TransactionLogEntry transactionLogEntry = transactionProcessor[count - 1];           
+            lblTotalTransactionCountValue.Text = count.ToString();
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("transactionType = " + transactionLogEntry.TransactionType.ToString());
+            stringBuilder.Append("\namountCurrency = " + transactionLogEntry.Amount.Currency);
+            stringBuilder.Append("\namountValue = " + transactionLogEntry.Amount.Amount.ToString());
+            stringBuilder.Append("\nstatus = " + transactionLogEntry.Status.ToString());
+            stringBuilder.Append("\nAccounts:");
+            foreach (IAccount account in transactionLogEntry.Accounts)
+            {
+                stringBuilder.Append("\nId = " + account.Id + " Number = " + account.Number + " Balance = " + account.Balance.Amount + " Currency = " + account.Currency);
+            }
+            lblTransactionLogEntryDetailsValue.Text = stringBuilder.ToString();
         }
     }
 }
