@@ -11,3 +11,7 @@ C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSh
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\obj\Debug\CSharpProgrammingBasicsClasses.csprojResolveAssemblyReference.cache
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\obj\Debug\CSharpProgrammingBasicsClasses.dll
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\obj\Debug\CSharpProgrammingBasicsClasses.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\obj\Debug\CSharpProgrammingBasicsClasses.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\bin\Debug\CSharpProgrammingBasicsClasses.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\bin\Debug\CSharpProgrammingBasicsClasses.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\obj\Debug\CSharpProgrammingBasicsClasses.pdb

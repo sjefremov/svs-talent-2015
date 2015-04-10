@@ -19,10 +19,10 @@ namespace CSharpProgrammingBasics.Classes.Processors
         {
             _transactionProcessorInstance = new TransactionProcessor();
         }
-        private IList _transactionLog;
+        private IList<TransactionLogEntry> _transactionLog;
         private TransactionProcessor ()
 	    {
-            _transactionLog = new ArrayList();
+            _transactionLog = new List<TransactionLogEntry>();
 	    }
         /// <summary>
         ///For Transfer type of transaction the DebitAmount method is called on the account passed in the accountFrom parameter and the CreditAmount method is called on the account passed in the accountTo parameter.
@@ -182,7 +182,7 @@ namespace CSharpProgrammingBasics.Classes.Processors
             {
                 try
                 {
-                    return _transactionLog[index] as TransactionLogEntry;
+                    return _transactionLog[index];
                 }
                 catch (ArgumentOutOfRangeException ex)
                 {

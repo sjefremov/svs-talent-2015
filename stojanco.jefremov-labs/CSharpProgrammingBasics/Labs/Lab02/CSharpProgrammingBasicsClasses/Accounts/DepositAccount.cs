@@ -79,7 +79,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
 
         protected override string GenerateAccountNumber()
         {
-            return AccountHelper.GenerateAccountNumber(this.GetType(), this.Id);
+            return AccountHelper.GenerateAccountNumber<DepositAccount>(this.Id);
         }
     }
 }
