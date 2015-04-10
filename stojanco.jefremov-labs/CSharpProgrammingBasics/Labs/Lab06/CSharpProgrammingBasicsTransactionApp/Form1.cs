@@ -86,26 +86,28 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// <returns></returns>
         private DepositAccount CreateDepositAccount()
         {
-            TimePeriod depositPeriod = new TimePeriod();
-            //TODO Should not we calculate the period from difference between startDate and endDate instead of entering it.
-            depositPeriod.Period = Int32.Parse(txtDepositAccountPeriodAmount.Text);
-            depositPeriod.Unit = (UnitOfTime)cmbDepositAccountPeriodUnit.SelectedItem;
-            InterestRate interestRate = new InterestRate();
-            interestRate.Percent = Decimal.Parse(txtDepositAccountInterestPercent.Text);
-            interestRate.Unit = (UnitOfTime)cmbDepositAccountInterestUnit.SelectedItem;
-            //TODO Where do we get from values for depositAccount.currency and depositAccount.TransactionAccount. Aren't we duplicating values for currency?
-            DepositAccount depositAccount = new DepositAccount(txtAccountCurrency.Text,
-                depositPeriod, interestRate, dtpDepositAccountStartDate.Value, dtpDepositAccountEndDate.Value,
-                    _transactionAccount);
+            DepositAccount depositAccount = this.CreateAccount<DepositAccount>(_transactionAccount);
             return depositAccount;
         }
 
         /// <summary>
-        /// Returns new instance of the DepositAccount class created from the values entered from the user.
+        /// Returns new instance of the LoanAccount class created from the values entered from the user.
         /// </summary>
         /// <returns></returns>
         private LoanAccount CreateLoanAccount()
         {
+            LoanAccount loanAccount = this.CreateAccount<LoanAccount>(_transactionAccount);
+            return loanAccount;
+        }
+        /// <summary>
+        /// If the passed type is not DepositAccount or LoanAccount it will return the default value for that type.
+        /// </summary>
+        /// <typeparam name="AccountType"></typeparam>
+        /// <param name="transactionAccount"></param>
+        /// <returns></returns>
+        private AccountType CreateAccount<AccountType>(TransactionAccount transactionAccount) where AccountType:DepositAccount
+        {
+            AccountType createdAccount = default(AccountType);
             TimePeriod depositPeriod = new TimePeriod();
             //TODO Should not we calculate the period from difference between startDate and endDate instead of entering it.
             depositPeriod.Period = Int32.Parse(txtDepositAccountPeriodAmount.Text);
@@ -113,11 +115,19 @@ namespace CSharpProgrammingBasicsTransactionApp
             InterestRate interestRate = new InterestRate();
             interestRate.Percent = Decimal.Parse(txtDepositAccountInterestPercent.Text);
             interestRate.Unit = (UnitOfTime)cmbDepositAccountInterestUnit.SelectedItem;
-            //TODO Where do we get from values for depositAccount.currency and depositAccount.TransactionAccount. Aren't we duplicating values for currency?
-            LoanAccount loanAccount = new LoanAccount(txtAccountCurrency.Text,
+            if (typeof(AccountType) == typeof(DepositAccount))
+            {
+                createdAccount = new DepositAccount(txtAccountCurrency.Text,
                 depositPeriod, interestRate, dtpDepositAccountStartDate.Value, dtpDepositAccountEndDate.Value,
-                    _transactionAccount);
-            return loanAccount;
+                    transactionAccount) as AccountType;
+            }
+            else if (typeof(AccountType) == typeof(LoanAccount))
+            {
+                createdAccount = new LoanAccount(txtAccountCurrency.Text,
+                depositPeriod, interestRate, dtpDepositAccountStartDate.Value, dtpDepositAccountEndDate.Value,
+                    transactionAccount) as AccountType;
+            }
+            return createdAccount;
         }
         /// <summary>
         /// Checks if the account parameter is a DepositAccount and if this is true will populate the DepositAccount specific labels.

@@ -615,7 +615,7 @@
             // lblTotalTransactionCount
             // 
             this.lblTotalTransactionCount.AutoSize = true;
-            this.lblTotalTransactionCount.Location = new System.Drawing.Point(523, 21);
+            this.lblTotalTransactionCount.Location = new System.Drawing.Point(569, 21);
             this.lblTotalTransactionCount.Name = "lblTotalTransactionCount";
             this.lblTotalTransactionCount.Size = new System.Drawing.Size(121, 13);
             this.lblTotalTransactionCount.TabIndex = 64;
@@ -624,7 +624,7 @@
             // lblTotalTransactionCountValue
             // 
             this.lblTotalTransactionCountValue.AutoSize = true;
-            this.lblTotalTransactionCountValue.Location = new System.Drawing.Point(651, 21);
+            this.lblTotalTransactionCountValue.Location = new System.Drawing.Point(704, 21);
             this.lblTotalTransactionCountValue.Name = "lblTotalTransactionCountValue";
             this.lblTotalTransactionCountValue.Size = new System.Drawing.Size(0, 13);
             this.lblTotalTransactionCountValue.TabIndex = 65;
@@ -632,7 +632,7 @@
             // lblTransactionLogEntryDetails
             // 
             this.lblTransactionLogEntryDetails.AutoSize = true;
-            this.lblTransactionLogEntryDetails.Location = new System.Drawing.Point(526, 49);
+            this.lblTransactionLogEntryDetails.Location = new System.Drawing.Point(572, 49);
             this.lblTransactionLogEntryDetails.Name = "lblTransactionLogEntryDetails";
             this.lblTransactionLogEntryDetails.Size = new System.Drawing.Size(146, 13);
             this.lblTransactionLogEntryDetails.TabIndex = 66;
@@ -641,7 +641,7 @@
             // lblTransactionLogEntryDetailsValue
             // 
             this.lblTransactionLogEntryDetailsValue.AutoSize = true;
-            this.lblTransactionLogEntryDetailsValue.Location = new System.Drawing.Point(526, 78);
+            this.lblTransactionLogEntryDetailsValue.Location = new System.Drawing.Point(581, 78);
             this.lblTransactionLogEntryDetailsValue.Name = "lblTransactionLogEntryDetailsValue";
             this.lblTransactionLogEntryDetailsValue.Size = new System.Drawing.Size(0, 13);
             this.lblTransactionLogEntryDetailsValue.TabIndex = 67;
@@ -650,7 +650,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 502);
+            this.ClientSize = new System.Drawing.Size(890, 502);
             this.Controls.Add(this.lblTransactionLogEntryDetailsValue);
             this.Controls.Add(this.lblTransactionLogEntryDetails);
             this.Controls.Add(this.lblTotalTransactionCountValue);
