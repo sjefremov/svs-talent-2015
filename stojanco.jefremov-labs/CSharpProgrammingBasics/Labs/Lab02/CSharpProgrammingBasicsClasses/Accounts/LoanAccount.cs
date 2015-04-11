@@ -12,6 +12,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
     /// <summary>
     /// 
     /// </summary>
+    [AccountMetadata(AccountDescription = "LoanAccountDescription", AccountLimitations = "LoanAccountLimitations")]
     public sealed class LoanAccount:DepositAccount, ILoanAccount
     {
         public LoanAccount(string currency, TimePeriod depositPeriod, InterestRate interestRate, DateTime startDate, DateTime endDate, ITransactionAccount transactionAccount)

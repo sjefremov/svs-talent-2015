@@ -12,6 +12,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
     /// <summary>
     /// 
     /// </summary>
+    [AccountMetadata(AccountDescription = "TransactionAccountDescription", AccountLimitations = "TransactionAccountLimitations")]
     public class TransactionAccount:Account, ITransactionAccount
     {
         private CurrencyAmount _limit;

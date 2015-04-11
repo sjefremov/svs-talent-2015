@@ -12,6 +12,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
     /// <summary>
     /// 
     /// </summary>
+    [AccountMetadata(AccountDescription = "DepositAccountDescription", AccountLimitations = "DepositAccountLimitations")]
     public class DepositAccount:Account, IDepositAccount
     {
         private TimePeriod _period;

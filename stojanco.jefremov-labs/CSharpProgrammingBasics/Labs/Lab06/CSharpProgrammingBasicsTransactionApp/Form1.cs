@@ -24,9 +24,16 @@ namespace CSharpProgrammingBasicsTransactionApp
 
         private void btnCreateTransactionAccount_Click(object sender, EventArgs e)
         {
-            _transactionAccount = new TransactionAccount(txtAccountCurrency.Text, Decimal.Parse(txtAccountLimit.Text));
+            _transactionAccount = this.CreateTransactionAccount();
             this.PopulateTransactionAccountLabels(_transactionAccount);
-            //this.PopulateTransactionAccountLabels(_transactionAccount);
+        }
+        /// <summary>
+        /// Returns new instance of the TransactionAccount class created from the values entered from the user in the TextBox controls.
+        /// </summary>
+        /// <returns></returns>
+        private TransactionAccount CreateTransactionAccount()
+        {
+            return new TransactionAccount(txtAccountCurrency.Text, Decimal.Parse(txtAccountLimit.Text));
         }
         /// <summary>
         /// Receives a parameter of type Account and populates the Account common labels.
@@ -77,7 +84,7 @@ namespace CSharpProgrammingBasicsTransactionApp
             this.populateDepositAccountLabels(depositAccount);
         }
         /// <summary>
-        /// Returns new instance of the DepositAccount class created from the values entered from the user.
+        /// Returns new instance of the DepositAccount class created from the values entered from the user in the TextBox controls.
         /// </summary>
         /// <returns></returns>
         private DepositAccount CreateDepositAccount()
@@ -87,7 +94,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         }
 
         /// <summary>
-        /// Returns new instance of the LoanAccount class created from the values entered from the user.
+        /// Returns new instance of the LoanAccount class created from the values entered from the user  in the TextBox controls.
         /// </summary>
         /// <returns></returns>
         private LoanAccount CreateLoanAccount()
@@ -101,7 +108,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// <typeparam name="AccountType"></typeparam>
         /// <param name="transactionAccount"></param>
         /// <returns></returns>
-        private AccountType CreateAccount<AccountType>(TransactionAccount transactionAccount) where AccountType:DepositAccount
+        private AccountType CreateAccount<AccountType>(ITransactionAccount transactionAccount) where AccountType:DepositAccount
         {
             AccountType createdAccount = default(AccountType);
             TimePeriod depositPeriod = new TimePeriod();
@@ -189,10 +196,15 @@ namespace CSharpProgrammingBasicsTransactionApp
         private void btnMakeGroupTransaction_Click(object sender, EventArgs e)
         {
             IAccount[] accounts = new IAccount[2];
-            IDepositAccount depositAccount = this.CreateDepositAccount();
-            ILoanAccount loanAccount = this.CreateLoanAccount();
-            accounts[0] = depositAccount;
-            accounts[1] = loanAccount;
+            Dictionary<CreateAccountType, IAccount> dictionary =
+                this.CreateAccounts(CreateAccountType.TransactionAccount, null);
+            IAccount transactionAccount;
+            dictionary.TryGetValue(CreateAccountType.TransactionAccount, out transactionAccount);
+             dictionary =
+                this.CreateAccounts(CreateAccountType.DepositAccount | CreateAccountType.LoanAccount, 
+                transactionAccount as ITransactionAccount);
+            dictionary.TryGetValue(CreateAccountType.DepositAccount, out accounts[0]);
+            dictionary.TryGetValue(CreateAccountType.LoanAccount, out accounts[1]);
             ITransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
             //TODO Should not we take the amount values from the user???
             CurrencyAmount currencyAmount = new CurrencyAmount();
@@ -255,6 +267,31 @@ namespace CSharpProgrammingBasicsTransactionApp
             outputMessage.Append("\nChange.Amount: " + eventArgs.Change.Amount);
             outputMessage.Append("\nChange.Currency: " + eventArgs.Change.Currency + "\n");
             Console.WriteLine(outputMessage.ToString());
+        }
+        /// <summary>
+        /// Checks which flags are set in the provided parameter and creates the appropriate accounts 
+        /// by calling the Create methods.
+        /// </summary>
+        /// <param name="accountTypesToCreate"></param>
+        /// <param name="transactionAccount"></param>
+        /// <returns></returns>
+        private Dictionary<CreateAccountType, IAccount> 
+            CreateAccounts(CreateAccountType accountTypesToCreate, ITransactionAccount transactionAccount)
+        {
+            Dictionary<CreateAccountType, IAccount> dictionary = new Dictionary<CreateAccountType, IAccount>();
+            if ((accountTypesToCreate & CreateAccountType.DepositAccount) == CreateAccountType.DepositAccount)
+            {
+                dictionary.Add(CreateAccountType.DepositAccount, this.CreateAccount<DepositAccount>(transactionAccount));
+            }
+            if ((accountTypesToCreate & CreateAccountType.LoanAccount) == CreateAccountType.LoanAccount)
+            {
+                dictionary.Add(CreateAccountType.LoanAccount, this.CreateAccount<LoanAccount>(transactionAccount));
+            }
+            if ((accountTypesToCreate & CreateAccountType.TransactionAccount) == CreateAccountType.TransactionAccount)
+            {
+                dictionary.Add(CreateAccountType.TransactionAccount, this.CreateTransactionAccount());
+            }
+            return dictionary;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
             get { return _id; }
             private set { _id = value; }
         }
+        [FormatRestriction(FormatString = "XXXX-XXXX-XXXX-XXXX", MaxLength = 16)]
         private string _number;
         /// <summary>
         /// 
