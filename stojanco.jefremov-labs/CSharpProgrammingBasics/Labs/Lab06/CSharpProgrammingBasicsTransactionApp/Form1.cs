@@ -33,7 +33,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// <returns></returns>
         private TransactionAccount CreateTransactionAccount()
         {
-            return new TransactionAccount(txtAccountCurrency.Text, Decimal.Parse(txtAccountLimit.Text));
+            return new TransactionAccount(txtTransactionCurrency.Text, Decimal.Parse(txtTransactionAmount.Text));
         }
         /// <summary>
         /// Receives a parameter of type Account and populates the Account common labels.
@@ -181,7 +181,28 @@ namespace CSharpProgrammingBasicsTransactionApp
             CurrencyAmount currencyAmmount = new CurrencyAmount();
             currencyAmmount.Amount = 20000;
             currencyAmmount.Currency = "MKD";
-            TransactionStatus transactionStatus = transactionProcessor.ProcessTransaction(TransactionType.Transfer, currencyAmmount, loanAccount, depositAccount);
+            TransactionStatus transactionStatus = TransactionStatus.InProcess;
+            bool _errorOccurred = false;
+            string _errorMsg = null;
+            try
+            {
+                //TODO Here we have a problem... It does not throw the expected AppException Task 8 Lab15
+                transactionStatus = transactionProcessor.ProcessTransaction
+                    (TransactionType.Transfer, currencyAmmount, loanAccount, depositAccount);
+            }
+            catch (ApplicationException ex)
+            {
+                _errorOccurred = true;
+                _errorMsg = ex.Message;
+            }
+            finally
+            {
+                if (_errorOccurred)
+                {
+                    MessageBox.Show(_errorMsg);
+                }
+            }
+            
             if (transactionStatus == TransactionStatus.Completed)
             {
                 this.DisplayLastTransactionDetails();

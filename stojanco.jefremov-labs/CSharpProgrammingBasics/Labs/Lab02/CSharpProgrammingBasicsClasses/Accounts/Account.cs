@@ -94,7 +94,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         #region PublicMethods
         /// <summary>
         /// Decreases the balance of the account. Returns Completed TransactionStatus.
-        /// If the amount provided has not the same currency as the account currency the transaction will not be executed and the Failed TransactionStatus will be returned.
+        /// If the amount provided has not the same currency as the account currency the transaction will not be executed 
+        /// and an ApplicationException will be thrown with message that shows the difference.
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
@@ -102,7 +103,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         {
             if (!sameCurrencies(amount))
             {
-                return TransactionStatus.Failed;
+                throw new ApplicationException("Different currencies! AccountCurreny: " + 
+                    this.Currency + " amountCurrency: " + amount.Currency);
             }
             else
             {
@@ -114,7 +116,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         }
         /// <summary>
         /// Increases the balance of the account. Returns Completed TransactionStatus.
-        /// If the amount provided has not the same currency as the account currency the transaction will not be executed and the Failed TransactionStatus will be returned.
+        /// If the amount provided has not the same currency as the account currency the transaction will not be executed 
+        /// and an ApplicationException will be thrown with message that shows the difference.
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
@@ -122,7 +125,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         {
             if (!sameCurrencies(amount))
             {
-                return TransactionStatus.Failed;
+                throw new ApplicationException("Different currencies! AccountCurreny: " +
+                    this.Currency + " amountCurrency: " + amount.Currency);
             }
             else
             {

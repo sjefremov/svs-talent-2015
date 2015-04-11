@@ -92,6 +92,10 @@
             this.lblTotalTransactionCountValue = new System.Windows.Forms.Label();
             this.lblTransactionLogEntryDetails = new System.Windows.Forms.Label();
             this.lblTransactionLogEntryDetailsValue = new System.Windows.Forms.Label();
+            this.txtTransactionAmount = new System.Windows.Forms.TextBox();
+            this.txtTransactionCurrency = new System.Windows.Forms.TextBox();
+            this.lblTransactionAmount = new System.Windows.Forms.Label();
+            this.lblTransactionCurrency = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreateTransactionAccount
@@ -646,11 +650,47 @@
             this.lblTransactionLogEntryDetailsValue.Size = new System.Drawing.Size(0, 13);
             this.lblTransactionLogEntryDetailsValue.TabIndex = 67;
             // 
+            // txtTransactionAmount
+            // 
+            this.txtTransactionAmount.Location = new System.Drawing.Point(129, 418);
+            this.txtTransactionAmount.Name = "txtTransactionAmount";
+            this.txtTransactionAmount.Size = new System.Drawing.Size(100, 20);
+            this.txtTransactionAmount.TabIndex = 68;
+            // 
+            // txtTransactionCurrency
+            // 
+            this.txtTransactionCurrency.Location = new System.Drawing.Point(129, 448);
+            this.txtTransactionCurrency.Name = "txtTransactionCurrency";
+            this.txtTransactionCurrency.Size = new System.Drawing.Size(100, 20);
+            this.txtTransactionCurrency.TabIndex = 69;
+            // 
+            // lblTransactionAmount
+            // 
+            this.lblTransactionAmount.AutoSize = true;
+            this.lblTransactionAmount.Location = new System.Drawing.Point(19, 424);
+            this.lblTransactionAmount.Name = "lblTransactionAmount";
+            this.lblTransactionAmount.Size = new System.Drawing.Size(102, 13);
+            this.lblTransactionAmount.TabIndex = 70;
+            this.lblTransactionAmount.Text = "Transaction Amount";
+            // 
+            // lblTransactionCurrency
+            // 
+            this.lblTransactionCurrency.AutoSize = true;
+            this.lblTransactionCurrency.Location = new System.Drawing.Point(20, 451);
+            this.lblTransactionCurrency.Name = "lblTransactionCurrency";
+            this.lblTransactionCurrency.Size = new System.Drawing.Size(108, 13);
+            this.lblTransactionCurrency.TabIndex = 71;
+            this.lblTransactionCurrency.Text = "Transaction Currency";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 502);
+            this.Controls.Add(this.lblTransactionCurrency);
+            this.Controls.Add(this.lblTransactionAmount);
+            this.Controls.Add(this.txtTransactionCurrency);
+            this.Controls.Add(this.txtTransactionAmount);
             this.Controls.Add(this.lblTransactionLogEntryDetailsValue);
             this.Controls.Add(this.lblTransactionLogEntryDetails);
             this.Controls.Add(this.lblTotalTransactionCountValue);
@@ -789,6 +829,10 @@
         private System.Windows.Forms.Label lblTotalTransactionCountValue;
         private System.Windows.Forms.Label lblTransactionLogEntryDetails;
         private System.Windows.Forms.Label lblTransactionLogEntryDetailsValue;
+        private System.Windows.Forms.TextBox txtTransactionAmount;
+        private System.Windows.Forms.TextBox txtTransactionCurrency;
+        private System.Windows.Forms.Label lblTransactionAmount;
+        private System.Windows.Forms.Label lblTransactionCurrency;
     }
 }
 
