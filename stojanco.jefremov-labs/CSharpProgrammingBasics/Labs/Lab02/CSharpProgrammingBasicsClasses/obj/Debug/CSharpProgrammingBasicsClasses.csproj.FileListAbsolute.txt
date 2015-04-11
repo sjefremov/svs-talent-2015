@@ -15,4 +15,3 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CShar
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\bin\Debug\CSharpProgrammingBasicsClasses.dll
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\bin\Debug\CSharpProgrammingBasicsClasses.pdb
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\obj\Debug\CSharpProgrammingBasicsClasses.pdb
-C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\stojanco.jefremov-labs\CSharpProgrammingBasics\Labs\Lab02\CSharpProgrammingBasicsClasses\obj\Debug\CSharpProgrammingBasicsClasses.csprojResolveAssemblyReference.cache

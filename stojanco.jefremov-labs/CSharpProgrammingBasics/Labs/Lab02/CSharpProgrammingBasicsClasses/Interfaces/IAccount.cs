@@ -50,5 +50,7 @@ namespace CSharpProgrammingBasics.Classes.Interfaces
         /// <param name="amount"></param>
         /// <returns></returns>
         TransactionStatus CreditAmount(CurrencyAmount amount);
+
+        event EventHandler<BalanceChangedEventArguments> OnBalanceChanged;
     }
 }

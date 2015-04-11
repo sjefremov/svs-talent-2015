@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CSharpProgrammingBasics.Classes.Accounts;
 using CSharpProgrammingBasics.Classes.Interfaces;
+using CSharpProgrammingBasics.Classes.Common;
 
 namespace CSharpProgrammingBasics.Classes.Helpers
 {
@@ -66,6 +67,39 @@ namespace CSharpProgrammingBasics.Classes.Helpers
         public static string GenerateAccountNumber<AccountType>(long accountId) where AccountType : IAccount
         {
             return GenerateAccountNumber(typeof(AccountType),accountId);
+        }
+        /// <summary>
+        /// Checks whether the amount exceeds 20000 MKD and if this is the case then writes the 
+        /// accountNumber, transactionType, amount and amountCurrency to the console output.
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="transactionType"></param>
+        /// <param name="amount"></param>
+        public static void LogTransaction(IAccount account, TransactionType transactionType, CurrencyAmount amount)
+        {
+            if ((amount.Currency.Equals("MKD")) && (amount.Amount > 20000))
+            {
+                StringBuilder output = new StringBuilder();
+                output.Append("accountNumber: " + account.Number);
+                output.Append("\ntransactionType: " + transactionType);
+                output.Append("\namount: " + amount.Amount);
+                output.Append("\namountCurrency: " + amount.Currency + "\n");
+                Console.WriteLine(output.ToString());
+            }
+        }
+        /// <summary>
+        /// Checks whether the amount exceeds 25000 MKD and if this is the case writes a notification message 
+        /// in the console output that mimics the national bank notification.
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="transactionType"></param>
+        /// <param name="amount"></param>
+        public static void NotifyNationalBank(IAccount account, TransactionType transactionType, CurrencyAmount amount)
+        {
+            if ((amount.Currency.Equals("MKD")) && (amount.Amount > 25000))
+            {
+                Console.WriteLine("Notification for National Bank...\n");
+            }
         }
     }
 }

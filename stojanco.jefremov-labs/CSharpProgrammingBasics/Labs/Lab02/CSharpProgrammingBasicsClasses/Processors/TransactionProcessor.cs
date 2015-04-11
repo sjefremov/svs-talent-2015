@@ -1,4 +1,5 @@
 ﻿using CSharpProgrammingBasics.Classes.Common;
+using CSharpProgrammingBasics.Classes.Helpers;
 using CSharpProgrammingBasics.Classes.Interfaces;
 using System;
 using System.Collections;
@@ -14,10 +15,12 @@ namespace CSharpProgrammingBasics.Classes.Processors
     /// </summary>
     public class TransactionProcessor:ITransactionProcessor
     {
-        private static TransactionProcessor _transactionProcessorInstance;
+        private static TransactionProcessor s_transactionProcessorInstance;
         static TransactionProcessor()
         {
-            _transactionProcessorInstance = new TransactionProcessor();
+            s_transactionProcessorInstance = new TransactionProcessor();
+            s_transactionProcessorInstance.ExternalLogger = AccountHelper.LogTransaction;
+            s_transactionProcessorInstance.ExternalLogger += AccountHelper.NotifyNationalBank;
         }
         private IList<TransactionLogEntry> _transactionLog;
         private TransactionProcessor ()
@@ -43,9 +46,11 @@ namespace CSharpProgrammingBasics.Classes.Processors
                 //TODO Should not we check the return value of DebitAmount and CreditAmount methods???
                 case TransactionType.Transfer:
                     transactionStatus = accountFrom.DebitAmount(amount);
+                    this.CallExternalLogger(accountFrom, transactionType, amount);
                     if (transactionStatus == TransactionStatus.Completed)
                     {
                         transactionStatus = accountTo.CreditAmount(amount);
+                        this.CallExternalLogger(accountTo, transactionType, amount);
                     }
                     else
                     {
@@ -54,9 +59,11 @@ namespace CSharpProgrammingBasics.Classes.Processors
                     break;
                 case TransactionType.Debit:
                     transactionStatus = accountFrom.DebitAmount(amount);
+                    this.CallExternalLogger(accountFrom, transactionType, amount);
                     break;
                 case TransactionType.Credit:
                     transactionStatus = accountFrom.CreditAmount(amount);
+                    this.CallExternalLogger(accountFrom, transactionType, amount);
                     break;
                 default:
                     transactionStatus = TransactionStatus.Failed;
@@ -108,10 +115,12 @@ namespace CSharpProgrammingBasics.Classes.Processors
                     if (transactionType == TransactionType.Credit)
                     {
                             account.CreditAmount(amount);
+                            this.CallExternalLogger(account, transactionType, amount);
                     }
                     else
 	                {
                             account.DebitAmount(amount);
+                            this.CallExternalLogger(account, transactionType, amount);
 	                }
                            
                     if ((transactionStatus == TransactionStatus.Failed) || (transactionStatus == TransactionStatus.CompletedWithWarning))
@@ -196,7 +205,20 @@ namespace CSharpProgrammingBasics.Classes.Processors
         /// <returns></returns>
         public static TransactionProcessor GetTransactionProcessor()
         {
-            return _transactionProcessorInstance;
+            return s_transactionProcessorInstance;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TransactionLogger ExternalLogger
+        {
+            get;
+            set;
+        }
+        private void CallExternalLogger(IAccount account, TransactionType transactionType, CurrencyAmount amount)
+        {
+            this.ExternalLogger(account, transactionType, amount);
         }
     }
 }

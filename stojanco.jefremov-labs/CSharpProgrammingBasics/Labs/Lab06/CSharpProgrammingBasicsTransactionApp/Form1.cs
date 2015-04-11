@@ -38,8 +38,6 @@ namespace CSharpProgrammingBasicsTransactionApp
             lblAccountNumberValue.Text = account.Number;
             lblAccountCurrencyValue.Text = account.Currency;
             lblAccountBalanceValue.Text = account.Balance.Amount.ToString();
-            //this.PopulateTransactionAccountLabels(account);
-            //this.populateDepositAccountLabels(account);
         }
         /// <summary>
         /// Receives a parameter of type Account and populates the Account_To common labels.
@@ -51,8 +49,6 @@ namespace CSharpProgrammingBasicsTransactionApp
             lbl_ToAccountNumberValue.Text = account.Number;
             lbl_ToAccountCurrencyValue.Text = account.Currency;
             lbl_ToAccountBalanceValue.Text = account.Balance.Amount.ToString();
-            //this.PopulateTransactionAccountLabels(account);
-            //this.populateDepositAccountLabels(account);
         }
         /// <summary>
         /// Checks if the account parameter is a TransactionAccount and if this is true will populate the TransactionAccount specific labels.
@@ -127,6 +123,7 @@ namespace CSharpProgrammingBasicsTransactionApp
                 depositPeriod, interestRate, dtpDepositAccountStartDate.Value, dtpDepositAccountEndDate.Value,
                     transactionAccount) as AccountType;
             }
+            createdAccount.OnBalanceChanged += this.PrintBalanceChanged;
             return createdAccount;
         }
         /// <summary>
@@ -171,13 +168,6 @@ namespace CSharpProgrammingBasicsTransactionApp
 
         private void btnMakeTransaction_Click(object sender, EventArgs e)
         {
-            //ITransactionAccount transactionAccount = new TransactionAccount("MKD", 100000);
-            //TimePeriod timePeriod = new TimePeriod();
-            //timePeriod.Period = 1;
-            //timePeriod.Unit = UnitOfTime.Year;
-            //InterestRate interestRate = new InterestRate();
-            //interestRate.Percent = 0.5M;
-            //interestRate.Unit = UnitOfTime.Month;
             ILoanAccount loanAccount = CreateLoanAccount();
             IDepositAccount depositAccount = CreateDepositAccount();
             ITransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
@@ -187,8 +177,6 @@ namespace CSharpProgrammingBasicsTransactionApp
             TransactionStatus transactionStatus = transactionProcessor.ProcessTransaction(TransactionType.Transfer, currencyAmmount, loanAccount, depositAccount);
             if (transactionStatus == TransactionStatus.Completed)
             {
-                //this.PopulateAccountLabels(loanAccount);
-                //this.PopulateAccount_ToLabels(depositAccount);
                 this.DisplayLastTransactionDetails();
                 this.populateDepositAccountLabels(depositAccount);
             }
@@ -218,8 +206,6 @@ namespace CSharpProgrammingBasicsTransactionApp
             TransactionStatus transactionStatus = transactionProcessor.ProcessGroupTransaction(TransactionType.Debit, currencyAmount, accounts);
             if (transactionStatus == TransactionStatus.Completed)
             {
-                //this.PopulateAccountLabels(accounts[0]);
-                //this.PopulateAccount_ToLabels(accounts[1]);
                 this.DisplayLastTransactionDetails();
             }
             else if (transactionStatus == TransactionStatus.Failed)
@@ -231,6 +217,10 @@ namespace CSharpProgrammingBasicsTransactionApp
                 MessageBox.Show("Group Transaction was not fully completed because of transaction status = " + transactionStatus);
             }
         }
+        /// <summary>
+        /// Gets the last TransactionLogEntry from the transaction processor using the LastTransaction property and 
+        /// displays the details in the appropriate labels as well as the transaction count.
+        /// </summary>
         private void DisplayLastTransactionDetails()
         {
             TransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
@@ -248,6 +238,23 @@ namespace CSharpProgrammingBasicsTransactionApp
                 stringBuilder.Append("\nId = " + account.Id + " Number = " + account.Number + " Balance = " + account.Balance.Amount + " Currency = " + account.Currency);
             }
             lblTransactionLogEntryDetailsValue.Text = stringBuilder.ToString();
+        }
+        /// <summary>
+        /// Handler for the OnBalanceChanged event that prints a message with the event arguments details to the console output.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="eventArgs"></param>
+        private void PrintBalanceChanged(Object sender, BalanceChangedEventArguments eventArgs)
+        {
+            StringBuilder outputMessage = new StringBuilder();
+            outputMessage.Append("\n\nBalance changed:\n");
+            outputMessage.Append("AccountId: " + eventArgs.Account.Id);
+            outputMessage.Append("\nAccountNumber: " + eventArgs.Account.Number);
+            outputMessage.Append("\nAccountCurrency: " + eventArgs.Account.Currency);
+            outputMessage.Append("\nAccountBalance.Amount: " + eventArgs.Account.Balance.Amount);
+            outputMessage.Append("\nChange.Amount: " + eventArgs.Change.Amount);
+            outputMessage.Append("\nChange.Currency: " + eventArgs.Change.Currency + "\n");
+            Console.WriteLine(outputMessage.ToString());
         }
     }
 }

@@ -48,7 +48,22 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         public CurrencyAmount Balance
         {
             get { return _balance; }
-            private set { _balance = value; }
+            ///Checks if the new value for the balance is different from the old and if this is the case calls the OnBalanceChanged event.
+            private set 
+            {
+                if (this._balance.Amount != value.Amount)
+                {
+                    this.OnBalanceChanged(this, new BalanceChangedEventArguments(this, value));
+                }
+                else if (this._balance.Currency != null)
+                {
+                    if (!this._balance.Currency.Equals(value.Currency))
+                    {
+                        this.OnBalanceChanged(this, new BalanceChangedEventArguments(this, value));
+                    }
+                }
+                _balance = value; 
+            }
         }
         /// <summary>
         /// 
@@ -129,5 +144,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         }
         #endregion
         protected abstract string GenerateAccountNumber();
+
+
+        public event EventHandler<BalanceChangedEventArguments> OnBalanceChanged;
     }
 }

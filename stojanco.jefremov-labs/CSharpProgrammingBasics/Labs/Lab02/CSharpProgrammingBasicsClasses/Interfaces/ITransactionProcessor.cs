@@ -36,5 +36,10 @@ namespace CSharpProgrammingBasics.Classes.Interfaces
         {
             get;
         }
+        TransactionLogger ExternalLogger
+        {
+            get;
+            set;
+        }
     }
 }
