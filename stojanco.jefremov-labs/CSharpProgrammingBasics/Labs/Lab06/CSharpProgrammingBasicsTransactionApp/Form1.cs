@@ -16,6 +16,7 @@ namespace CSharpProgrammingBasicsTransactionApp
 {
     public partial class frmMain : Form
     {
+        //TODO Why we use this variable??? Ckeck all references!
         private TransactionAccount _transactionAccount = null;
         public frmMain()
         {
@@ -25,7 +26,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         private void btnCreateTransactionAccount_Click(object sender, EventArgs e)
         {
             _transactionAccount = this.CreateTransactionAccount();
-            this.PopulateTransactionAccountLabels(_transactionAccount);
+            this.PopulateAccountLabels(_transactionAccount);
         }
         /// <summary>
         /// Returns new instance of the TransactionAccount class created from the values entered from the user in the TextBox controls.
@@ -45,6 +46,8 @@ namespace CSharpProgrammingBasicsTransactionApp
             lblAccountNumberValue.Text = account.Number;
             lblAccountCurrencyValue.Text = account.Currency;
             lblAccountBalanceValue.Text = account.Balance.Amount.ToString();
+            this.PopulateDepositAccountLabels(account);
+            this.PopulateTransactionAccountLabels(account);
         }
         /// <summary>
         /// Receives a parameter of type Account and populates the Account_To common labels.
@@ -69,7 +72,7 @@ namespace CSharpProgrammingBasicsTransactionApp
                 ITransactionAccount transactionAccount = (TransactionAccount)account;
                 lblTransactionAccountLimitValue.Text = transactionAccount.Limit.Amount.ToString();
                 lblTransactionAccountLimitCurrencyValue.Text = transactionAccount.Limit.Currency;
-                this.PopulateAccountLabels(account);
+                //this.PopulateAccountLabels(account);
             }
             else
             {
@@ -81,7 +84,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         private void btnCreateDepositAccount_Click(object sender, EventArgs e)
         {
             DepositAccount depositAccount = this.CreateDepositAccount();
-            this.populateDepositAccountLabels(depositAccount);
+            this.PopulateAccountLabels(depositAccount);
         }
         /// <summary>
         /// Returns new instance of the DepositAccount class created from the values entered from the user in the TextBox controls.
@@ -138,7 +141,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// Otherwise it will clear the DepositAccount specific labels.
         /// </summary>
         /// <param name="account"></param>
-        private void populateDepositAccountLabels(IAccount account)
+        private void PopulateDepositAccountLabels(IAccount account)
         {
             if (account.GetType() == typeof(DepositAccount))
             {
@@ -149,7 +152,7 @@ namespace CSharpProgrammingBasicsTransactionApp
                 lblDepositAccountPeriodAmountValue.Text = depositAccount.Period.Period.ToString();
                 lblDepositAccountPeriodUnitValue.Text = depositAccount.Period.Unit.ToString();
                 lblDepositAccountStartDateValue.Text = depositAccount.StartDate.ToShortDateString();
-                this.PopulateAccountLabels(depositAccount);
+                //this.PopulateAccountLabels(depositAccount);
             }
             else
             {
@@ -206,7 +209,7 @@ namespace CSharpProgrammingBasicsTransactionApp
             if (transactionStatus == TransactionStatus.Completed)
             {
                 this.DisplayLastTransactionDetails();
-                this.populateDepositAccountLabels(depositAccount);
+                this.PopulateDepositAccountLabels(depositAccount);
             }
             else
             {

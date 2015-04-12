@@ -56,13 +56,6 @@ namespace CSharpProgrammingBasics.Classes.Accounts
                 {
                     this.OnBalanceChanged(this, new BalanceChangedEventArguments(this, value));
                 }
-                else if (this._balance.Currency != null)
-                {
-                    if (!this._balance.Currency.Equals(value.Currency))
-                    {
-                        this.OnBalanceChanged(this, new BalanceChangedEventArguments(this, value));
-                    }
-                }
                 _balance = value; 
             }
         }
@@ -79,7 +72,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
             this.Currency = currency;
             CurrencyAmount tempBalance = this.Balance;
             tempBalance.Amount = 0;
-            tempBalance.Currency = "CurrencyParrameter";
+            tempBalance.Currency = currency;
             this.Balance = tempBalance;
         }
         /// <summary>
