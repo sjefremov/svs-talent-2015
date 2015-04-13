@@ -96,8 +96,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         {
             if (!sameCurrencies(amount))
             {
-                throw new ApplicationException("Different currencies! AccountCurreny: " + 
-                    this.Currency + " amountCurrency: " + amount.Currency);
+                throw new CurrencyMismatchException("Different currencies! AccountCurrency: " + 
+                    this.Currency + " vs amountCurrency: " + amount.Currency);
             }
             else
             {
@@ -118,8 +118,8 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         {
             if (!sameCurrencies(amount))
             {
-                throw new ApplicationException("Different currencies! AccountCurreny: " +
-                    this.Currency + " amountCurrency: " + amount.Currency);
+                throw new CurrencyMismatchException("Different currencies! AccountCurrency: " +
+                    this.Currency + " vs amountCurrency: " + amount.Currency);
             }
             else
             {

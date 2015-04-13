@@ -16,8 +16,6 @@ namespace CSharpProgrammingBasicsTransactionApp
 {
     public partial class frmMain : Form
     {
-        //TODO Why we use this variable??? Ckeck all references!
-        private TransactionAccount _transactionAccount = null;
         public frmMain()
         {
             InitializeComponent();
@@ -25,8 +23,8 @@ namespace CSharpProgrammingBasicsTransactionApp
 
         private void btnCreateTransactionAccount_Click(object sender, EventArgs e)
         {
-            _transactionAccount = this.CreateTransactionAccount();
-            this.PopulateAccountLabels(_transactionAccount);
+            TransactionAccount transactionAccount = this.CreateTransactionAccount();
+            this.PopulateAccountLabels(transactionAccount);
         }
         /// <summary>
         /// Returns new instance of the TransactionAccount class created from the values entered from the user in the TextBox controls.
@@ -34,7 +32,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// <returns></returns>
         private TransactionAccount CreateTransactionAccount()
         {
-            TransactionAccount transactionAccount = new TransactionAccount(txtTransactionCurrency.Text, Decimal.Parse(txtTransactionAmount.Text));
+            TransactionAccount transactionAccount = new TransactionAccount(txtAccountCurrency.Text, Decimal.Parse(txtAccountLimit.Text));
             transactionAccount.OnBalanceChanged += Account_OnBalanceChanged;
             return transactionAccount;
         }
@@ -94,7 +92,8 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// <returns></returns>
         private DepositAccount CreateDepositAccount()
         {
-            DepositAccount depositAccount = this.CreateAccount<DepositAccount>(_transactionAccount);
+            TransactionAccount transactionAccount = this.CreateTransactionAccount();
+            DepositAccount depositAccount = this.CreateAccount<DepositAccount>(transactionAccount);
             return depositAccount;
         }
 
@@ -104,7 +103,8 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// <returns></returns>
         private LoanAccount CreateLoanAccount()
         {
-            LoanAccount loanAccount = this.CreateAccount<LoanAccount>(_transactionAccount);
+            TransactionAccount transactionAccount = this.CreateTransactionAccount();
+            LoanAccount loanAccount = this.CreateAccount<LoanAccount>(transactionAccount);
             return loanAccount;
         }
         /// <summary>
@@ -178,27 +178,37 @@ namespace CSharpProgrammingBasicsTransactionApp
             }
         }
 
+        private CurrencyAmount CreateTransactionAmount()
+        {
+            CurrencyAmount currencyAmmount = new CurrencyAmount();
+            currencyAmmount.Amount = Decimal.Parse(txtTransactionAmount.Text);
+            currencyAmmount.Currency = txtTransactionCurrency.Text;
+            return currencyAmmount;
+        }
+
         private void btnMakeTransaction_Click(object sender, EventArgs e)
         {
             ILoanAccount loanAccount = CreateLoanAccount();
             IDepositAccount depositAccount = CreateDepositAccount();
             ITransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
-            CurrencyAmount currencyAmmount = new CurrencyAmount();
-            currencyAmmount.Amount = 20000;
-            currencyAmmount.Currency = "MKD";
+            CurrencyAmount currencyAmmount = this.CreateTransactionAmount();
             TransactionStatus transactionStatus = TransactionStatus.InProcess;
             bool _errorOccurred = false;
             string _errorMsg = null;
             try
             {
-                //TODO Here we have a problem... It does not throw the expected AppException Task 8 Lab15
                 transactionStatus = transactionProcessor.ProcessTransaction
                     (TransactionType.Transfer, currencyAmmount, loanAccount, depositAccount);
             }
-            catch (ApplicationException ex)
+            catch (CurrencyMismatchException ex)
             {
                 _errorOccurred = true;
                 _errorMsg = ex.Message;
+                transactionStatus = TransactionStatus.Failed;
+            }
+            catch (ApplicationException)
+            {
+                throw;
             }
             finally
             {

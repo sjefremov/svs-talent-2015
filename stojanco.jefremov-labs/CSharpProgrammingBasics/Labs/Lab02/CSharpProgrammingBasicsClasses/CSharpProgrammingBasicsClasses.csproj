@@ -53,6 +53,7 @@
     <Compile Include="Accounts\LoanAccount.cs" />
     <Compile Include="Common\Attributes.cs" />
     <Compile Include="Common\CreateAccountType.cs" />
+    <Compile Include="Common\CurrencyMismatchException.cs" />
     <Compile Include="Common\Delegates.cs" />
     <Compile Include="Helpers\AccountHelper.cs" />
     <Compile Include="Interfaces\IDepositAccount.cs" />
