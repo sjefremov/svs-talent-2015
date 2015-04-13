@@ -52,10 +52,6 @@ namespace CSharpProgrammingBasics.Classes.Processors
                         transactionStatus = accountTo.CreditAmount(amount);
                         this.CallExternalLogger(accountTo, transactionType, amount);
                     }
-                    else
-                    {
-                        break;
-                    }
                     break;
                 case TransactionType.Debit:
                     transactionStatus = accountFrom.DebitAmount(amount);
@@ -181,7 +177,8 @@ namespace CSharpProgrammingBasics.Classes.Processors
             get { return _transactionLog.Count; }
         }
         /// <summary>
-        /// Returns the TransactionLogEntry at the specified index by the indexer parameter. Checks if the index is out of bounds of the collection and if this is the case returns null.
+        /// Returns the TransactionLogEntry at the specified index by the indexer parameter. 
+        /// Checks if the index is out of bounds of the collection and if this is the case returns null.
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>

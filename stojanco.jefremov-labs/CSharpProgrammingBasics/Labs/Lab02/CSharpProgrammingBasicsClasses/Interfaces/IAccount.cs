@@ -50,7 +50,7 @@ namespace CSharpProgrammingBasics.Classes.Interfaces
         /// <param name="amount"></param>
         /// <returns></returns>
         TransactionStatus CreditAmount(CurrencyAmount amount);
-
+        //TODO Why we do not use here BalanceChanged Delegate for event type???
         event EventHandler<BalanceChangedEventArguments> OnBalanceChanged;
     }
 }

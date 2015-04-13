@@ -80,6 +80,7 @@ namespace CSharpProgrammingBasics.Classes.Helpers
             if ((amount.Currency.Equals("MKD")) && (amount.Amount > 20000))
             {
                 StringBuilder output = new StringBuilder();
+                output.Append("Amount exceeds 20000!!!\n");
                 output.Append("accountNumber: " + account.Number);
                 output.Append("\ntransactionType: " + transactionType);
                 output.Append("\namount: " + amount.Amount);
@@ -98,7 +99,7 @@ namespace CSharpProgrammingBasics.Classes.Helpers
         {
             if ((amount.Currency.Equals("MKD")) && (amount.Amount > 25000))
             {
-                Console.WriteLine("Notification for National Bank...\n");
+                Console.WriteLine("Notification for National Bank because amount exceeded 25000 MKD...\n");
             }
         }
     }

@@ -34,7 +34,9 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// <returns></returns>
         private TransactionAccount CreateTransactionAccount()
         {
-            return new TransactionAccount(txtTransactionCurrency.Text, Decimal.Parse(txtTransactionAmount.Text));
+            TransactionAccount transactionAccount = new TransactionAccount(txtTransactionCurrency.Text, Decimal.Parse(txtTransactionAmount.Text));
+            transactionAccount.OnBalanceChanged += Account_OnBalanceChanged;
+            return transactionAccount;
         }
         /// <summary>
         /// Receives a parameter of type Account and populates the Account common labels.
@@ -133,7 +135,7 @@ namespace CSharpProgrammingBasicsTransactionApp
                 depositPeriod, interestRate, dtpDepositAccountStartDate.Value, dtpDepositAccountEndDate.Value,
                     transactionAccount) as AccountType;
             }
-            createdAccount.OnBalanceChanged += this.PrintBalanceChanged;
+            createdAccount.OnBalanceChanged += this.Account_OnBalanceChanged;
             return createdAccount;
         }
         /// <summary>
@@ -209,7 +211,7 @@ namespace CSharpProgrammingBasicsTransactionApp
             if (transactionStatus == TransactionStatus.Completed)
             {
                 this.DisplayLastTransactionDetails();
-                this.PopulateDepositAccountLabels(depositAccount);
+                //this.PopulateDepositAccountLabels(depositAccount);
             }
             else
             {
@@ -280,7 +282,7 @@ namespace CSharpProgrammingBasicsTransactionApp
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="eventArgs"></param>
-        private void PrintBalanceChanged(Object sender, BalanceChangedEventArguments eventArgs)
+        private void Account_OnBalanceChanged(Object sender, BalanceChangedEventArguments eventArgs)
         {
             StringBuilder outputMessage = new StringBuilder();
             outputMessage.Append("\n\nBalance changed:\n");
