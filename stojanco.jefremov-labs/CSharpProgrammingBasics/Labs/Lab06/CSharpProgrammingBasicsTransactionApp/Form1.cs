@@ -11,6 +11,7 @@ using CSharpProgrammingBasics.Classes.Accounts;
 using CSharpProgrammingBasics.Classes.Common;
 using CSharpProgrammingBasics.Classes.Interfaces;
 using CSharpProgrammingBasics.Classes.Processors;
+using CSharpProgrammingBasics.Classes.Extensions;
 
 namespace CSharpProgrammingBasicsTransactionApp
 {
@@ -242,16 +243,38 @@ namespace CSharpProgrammingBasicsTransactionApp
             dictionary.TryGetValue(CreateAccountType.DepositAccount, out accounts[0]);
             dictionary.TryGetValue(CreateAccountType.LoanAccount, out accounts[1]);
             ITransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
-            //TODO Should not we take the amount values from the user???
-            CurrencyAmount currencyAmount = new CurrencyAmount();
-            currencyAmount.Amount = 100000;
-            currencyAmount.Currency = "MKD";
+            CurrencyAmount currencyAmount = this.CreateTransactionAmount();
             //Testing cases
             //accounts = null;
             //accounts = new IAccount[2];
             //accounts[0] = null;
             //accounts[1] = null;
-            TransactionStatus transactionStatus = transactionProcessor.ProcessGroupTransaction(TransactionType.Debit, currencyAmount, accounts);
+            
+            TransactionStatus transactionStatus = TransactionStatus.InProcess;
+            bool _errorOccurred = false;
+            string _errorMsg = null;
+            try
+            {
+                transactionStatus = transactionProcessor.ProcessGroupTransaction
+                    (TransactionType.Debit, currencyAmount, accounts);
+            }
+            catch (CurrencyMismatchException ex)
+            {
+                _errorOccurred = true;
+                _errorMsg = ex.Message;
+                transactionStatus = TransactionStatus.Failed;
+            }
+            catch (ApplicationException)
+            {
+                throw;
+            }
+            finally
+            {
+                if (_errorOccurred)
+                {
+                    MessageBox.Show(_errorMsg);
+                }
+            }
             if (transactionStatus == TransactionStatus.Completed)
             {
                 this.DisplayLastTransactionDetails();
@@ -328,6 +351,19 @@ namespace CSharpProgrammingBasicsTransactionApp
                 dictionary.Add(CreateAccountType.TransactionAccount, this.CreateTransactionAccount());
             }
             return dictionary;
+        }
+
+        private void btnChargeFee_Click(object sender, EventArgs e)
+        {
+            ITransactionProcessor transactionProcessor = TransactionProcessor.GetTransactionProcessor();
+            CurrencyAmount amount = new CurrencyAmount();
+            amount.Amount = 15;
+            amount.Currency = "MKD";
+            IAccount[] accounts = new IAccount[2];
+            accounts[0] = this.CreateDepositAccount();
+            accounts[1] = this.CreateLoanAccount();
+            transactionProcessor.ChargeProcessingFee(amount, accounts);
+            this.DisplayLastTransactionDetails();
         }
     }
 }

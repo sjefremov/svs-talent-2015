@@ -41,5 +41,6 @@ namespace CSharpProgrammingBasics.Classes.Interfaces
             get;
             set;
         }
+        //TransactionStatus ChargeProcessingFee(CurrencyAmount amount, IEnumerable<IAccount> accounts);
     }
 }

@@ -41,7 +41,6 @@ namespace CSharpProgrammingBasics.Classes.Accounts
             get;
             private set;
         }
-        //TODO Why we define two times the same attribute - currency. Once as field of Account class. Once as property of the field _balance.
         private CurrencyAmount _balance;
         /// <summary>
         /// 

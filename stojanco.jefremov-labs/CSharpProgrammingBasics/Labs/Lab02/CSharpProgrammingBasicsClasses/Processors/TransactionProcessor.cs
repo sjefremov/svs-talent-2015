@@ -43,7 +43,6 @@ namespace CSharpProgrammingBasics.Classes.Processors
             TransactionStatus transactionStatus = TransactionStatus.InProcess;
             switch (transactionType)
             {
-                //TODO Should not we check the return value of DebitAmount and CreditAmount methods???
                 case TransactionType.Transfer:
                     transactionStatus = accountFrom.DebitAmount(amount);
                     this.CallExternalLogger(accountFrom, transactionType, amount);
@@ -164,7 +163,6 @@ namespace CSharpProgrammingBasics.Classes.Processors
                 }
                 else
                 {
-                    //TODO Check TransactionLogEntry indexer implementation
                     return this[_transactionLog.Count - 1];
                 }
             }
@@ -217,5 +215,11 @@ namespace CSharpProgrammingBasics.Classes.Processors
         {
             this.ExternalLogger(account, transactionType, amount);
         }
+
+        //We have this method as extension in Extensions.ProcessorExtensions class
+        //public TransactionStatus ChargeProcessingFee(CurrencyAmount amount, IEnumerable<IAccount> accounts)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -33,7 +33,6 @@ namespace CSharpProgrammingBasics.Classes.Processors
         /// <summary>
         /// 
         /// </summary>
-        /// //TODO Should not this property be array???
         public IAccount[] Accounts
         {
             get;
