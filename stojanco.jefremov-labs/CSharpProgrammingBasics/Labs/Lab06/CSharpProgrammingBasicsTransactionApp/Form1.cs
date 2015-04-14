@@ -173,8 +173,32 @@ namespace CSharpProgrammingBasicsTransactionApp
             foreach (UnitOfTime unit in Enum.GetValues(typeof(UnitOfTime)))
             {
                 cmbDepositAccountInterestUnit.Items.Add(unit);
-                cmbDepositAccountInterestUnit.SelectedIndex = 0;
                 cmbDepositAccountPeriodUnit.Items.Add(unit);
+            }
+            cmbDepositAccountInterestUnit.SelectedIndex = 0;
+            this.DisplayTimePeriod();
+        }
+        /// <summary>
+        /// Calculates difference between values of the two DateTimePickers and 
+        /// displays the values in the appropriate controls.
+        /// </summary>
+        private void DisplayTimePeriod()
+        {
+            TimeSpan dateDifference = dtpDepositAccountEndDate.Value - dtpDepositAccountStartDate.Value;
+            int daysDifference = Int32.Parse(Math.Round(dateDifference.TotalDays).ToString());
+            if (daysDifference >= 365)
+            {
+                txtDepositAccountPeriodAmount.Text = (daysDifference / 365).ToString();
+                cmbDepositAccountPeriodUnit.SelectedIndex = 2;
+            }
+            else if (daysDifference >= 31)
+            {
+                txtDepositAccountPeriodAmount.Text = (daysDifference / 31).ToString();
+                cmbDepositAccountPeriodUnit.SelectedIndex = 1;
+            }
+            else
+            {              
+                txtDepositAccountPeriodAmount.Text = (daysDifference).ToString();
                 cmbDepositAccountPeriodUnit.SelectedIndex = 0;
             }
         }
@@ -364,6 +388,68 @@ namespace CSharpProgrammingBasicsTransactionApp
             accounts[1] = this.CreateLoanAccount();
             transactionProcessor.ChargeProcessingFee(amount, accounts);
             this.DisplayLastTransactionDetails();
+        }
+
+        private void dtpDepositAccountStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpDepositAccountEndDate.Value >= dtpDepositAccountStartDate.Value)
+            {
+                this.DisplayTimePeriod();
+            }
+            else
+            {
+                dtpDepositAccountStartDate.Value = dtpDepositAccountEndDate.Value;
+                MessageBox.Show("Start Date can not be greater than end date! Change first End Date.");
+            }
+        }
+
+        private void dtpDepositAccountEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpDepositAccountEndDate.Value >= dtpDepositAccountStartDate.Value)
+            {
+                this.DisplayTimePeriod();
+            }
+            else
+            {
+                dtpDepositAccountEndDate.Value = dtpDepositAccountStartDate.Value;
+                MessageBox.Show("Start Date can not be greater than end date! Change first Start Date.");
+            }
+        }
+
+        private void txtDepositAccountPeriodAmount_Leave(object sender, EventArgs e)
+        {
+            this.RefreshDates();
+        }
+        /// <summary>
+        /// Refreshes the end date of the deposit account depending of the entered time period.
+        /// </summary>
+        private void RefreshDates()
+        {
+            DateTime endDepositDate = dtpDepositAccountEndDate.Value;
+            DateTime startDepositDate = dtpDepositAccountStartDate.Value;
+            UnitOfTime timeUnit = (UnitOfTime)cmbDepositAccountPeriodUnit.SelectedItem;
+            switch (timeUnit)
+            {
+                case UnitOfTime.Day:
+                    double amount = Double.Parse(txtDepositAccountPeriodAmount.Text);
+                    endDepositDate = startDepositDate.AddDays(amount);
+                    break;
+                case UnitOfTime.Month:
+                    endDepositDate = startDepositDate.AddMonths(Int32.Parse(txtDepositAccountPeriodAmount.Text));
+                    break;
+                case UnitOfTime.Year:
+                    endDepositDate = startDepositDate.AddYears(Int32.Parse(txtDepositAccountPeriodAmount.Text));
+                    break;
+                default:
+                    break;
+            }
+            dtpDepositAccountEndDate.Value = endDepositDate;
+            dtpDepositAccountEndDate.Update();
+        }
+
+        private void cmbDepositAccountPeriodUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.RefreshDates();
         }
     }
 }
