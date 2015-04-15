@@ -50,7 +50,7 @@ namespace CSharpProgrammingBasics.Classes.Accounts
         private void TransactionAccount_OnBalanceChanged(Object sender, BalanceChangedEventArguments eventArgs)
         {
             //TODO When is limit reached. When balance is bigger or smaller than limit????
-            if (this.Balance.Amount <= this.Limit.Amount)
+            if (eventArgs.Change.Amount <= this.Limit.Amount)
             {
                 throw new LimitOverflowException("Limit overflowed!!! Limit: " + this.Limit.Amount +
                 " Balance: " + this.Balance.Amount);

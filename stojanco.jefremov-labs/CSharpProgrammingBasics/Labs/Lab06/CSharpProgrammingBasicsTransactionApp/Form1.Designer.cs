@@ -159,6 +159,7 @@
             this.dtpDepositAccountStartDate.Name = "dtpDepositAccountStartDate";
             this.dtpDepositAccountStartDate.Size = new System.Drawing.Size(200, 20);
             this.dtpDepositAccountStartDate.TabIndex = 6;
+            this.dtpDepositAccountStartDate.ValueChanged += new System.EventHandler(this.dtpDepositAccountStartDate_ValueChanged);
             // 
             // lblDepositAccountStartDate1
             // 
@@ -184,6 +185,7 @@
             this.dtpDepositAccountEndDate.Name = "dtpDepositAccountEndDate";
             this.dtpDepositAccountEndDate.Size = new System.Drawing.Size(200, 20);
             this.dtpDepositAccountEndDate.TabIndex = 9;
+            this.dtpDepositAccountEndDate.ValueChanged += new System.EventHandler(this.dtpDepositAccountEndDate_ValueChanged);
             // 
             // txtDepositAccountPeriodAmount
             // 
@@ -191,6 +193,7 @@
             this.txtDepositAccountPeriodAmount.Name = "txtDepositAccountPeriodAmount";
             this.txtDepositAccountPeriodAmount.Size = new System.Drawing.Size(100, 20);
             this.txtDepositAccountPeriodAmount.TabIndex = 10;
+            this.txtDepositAccountPeriodAmount.Leave += new System.EventHandler(this.txtDepositAccountPeriodAmount_Leave);
             // 
             // lblDepositAccountPeriod1
             // 
@@ -252,6 +255,7 @@
             this.txtDepositAccountInterestPercent.Name = "txtDepositAccountInterestPercent";
             this.txtDepositAccountInterestPercent.Size = new System.Drawing.Size(100, 20);
             this.txtDepositAccountInterestPercent.TabIndex = 15;
+            this.txtDepositAccountInterestPercent.Text = "0.5";
             // 
             // lblAccountIdValue
             // 
@@ -411,7 +415,7 @@
             // lblDepositAccountInterestPercentValue
             // 
             this.lblDepositAccountInterestPercentValue.AutoSize = true;
-            this.lblDepositAccountInterestPercentValue.Location = new System.Drawing.Point(448, 212);
+            this.lblDepositAccountInterestPercentValue.Location = new System.Drawing.Point(460, 212);
             this.lblDepositAccountInterestPercentValue.Name = "lblDepositAccountInterestPercentValue";
             this.lblDepositAccountInterestPercentValue.Size = new System.Drawing.Size(0, 13);
             this.lblDepositAccountInterestPercentValue.TabIndex = 38;
@@ -458,6 +462,7 @@
             this.cmbDepositAccountPeriodUnit.Name = "cmbDepositAccountPeriodUnit";
             this.cmbDepositAccountPeriodUnit.Size = new System.Drawing.Size(121, 21);
             this.cmbDepositAccountPeriodUnit.TabIndex = 43;
+            this.cmbDepositAccountPeriodUnit.SelectedIndexChanged += new System.EventHandler(this.cmbDepositAccountPeriodUnit_SelectedIndexChanged);
             // 
             // cmbDepositAccountInterestUnit
             // 
@@ -657,6 +662,7 @@
             this.txtTransactionAmount.Name = "txtTransactionAmount";
             this.txtTransactionAmount.Size = new System.Drawing.Size(100, 20);
             this.txtTransactionAmount.TabIndex = 68;
+            this.txtTransactionAmount.Text = "0";
             // 
             // txtTransactionCurrency
             // 
@@ -664,6 +670,7 @@
             this.txtTransactionCurrency.Name = "txtTransactionCurrency";
             this.txtTransactionCurrency.Size = new System.Drawing.Size(100, 20);
             this.txtTransactionCurrency.TabIndex = 69;
+            this.txtTransactionCurrency.Text = "MKD";
             // 
             // lblTransactionAmount
             // 
