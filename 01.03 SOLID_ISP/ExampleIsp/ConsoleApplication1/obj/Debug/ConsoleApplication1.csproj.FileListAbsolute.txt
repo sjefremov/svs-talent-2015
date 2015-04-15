@@ -1,0 +1,16 @@
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ExampleIsp.dll
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ExampleIsp.pdb
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Student\Documents\GitHub\svs-talent-2015\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ExampleIsp.dll
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\bin\Debug\ExampleIsp.pdb
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\Student\Desktop\Stole\GitHub111\svs-talent-2015-master\00-C# Basics\Labs\01.03 SOLID_ISP\ExampleIsp\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
