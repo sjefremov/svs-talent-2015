@@ -1,0 +1,5 @@
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\OpenClosedPrinciple\OpenClosedPrinciple\obj\Debug\OpenClosedPrinciple.csprojResolveAssemblyReference.cache
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\OpenClosedPrinciple\OpenClosedPrinciple\bin\Debug\OpenClosedPrinciple.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\OpenClosedPrinciple\OpenClosedPrinciple\bin\Debug\OpenClosedPrinciple.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\OpenClosedPrinciple\OpenClosedPrinciple\obj\Debug\OpenClosedPrinciple.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\OpenClosedPrinciple\OpenClosedPrinciple\obj\Debug\OpenClosedPrinciple.pdb

@@ -1,0 +1,8 @@
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\bin\Debug\LiskovSubstitutionPrinciple.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\bin\Debug\LiskovSubstitutionPrinciple.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

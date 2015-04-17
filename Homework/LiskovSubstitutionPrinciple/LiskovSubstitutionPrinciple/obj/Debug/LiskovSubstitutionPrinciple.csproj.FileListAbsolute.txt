@@ -1,0 +1,5 @@
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\LiskovSubstitutionPrinciple\bin\Debug\LiskovSubstitutionPrinciple.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\LiskovSubstitutionPrinciple\bin\Debug\LiskovSubstitutionPrinciple.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\LiskovSubstitutionPrinciple\obj\Debug\LiskovSubstitutionPrinciple.csprojResolveAssemblyReference.cache
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\LiskovSubstitutionPrinciple\obj\Debug\LiskovSubstitutionPrinciple.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\LiskovSubstitutionPrinciple\LiskovSubstitutionPrinciple\obj\Debug\LiskovSubstitutionPrinciple.pdb
