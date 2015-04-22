@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MasterPage</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    @RenderSection("HeaderScripts", false);
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">BikeRegister</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">User Registration</a></li>
+                    <li><a href="#">Register Your Bike</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3"><img src="~/Images/bikeBlackAndWhite.png" alt="Bike" /></div>
+        <div class="col-xs-6 col-md-6 col-lg-6">@RenderBody()</div>
+        <div class="col-xs-6 col-md-3 col-lg-3"><img src="~/Images/bike.png" alt="Bike" /></div>
+    </div>
+    <div class="panel-footer">Authorized by Jefremov 2015</div>
+</body>
+</html>
