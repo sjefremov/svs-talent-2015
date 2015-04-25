@@ -1,0 +1,10 @@
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\Registar.DomainModel.dll.config
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\Registar.DomainModel.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\Registar.DomainModel.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\EntityFramework.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\EntityFramework.xml
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\obj\Debug\Registar.DomainModel.csprojResolveAssemblyReference.cache
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\obj\Debug\Registar.DomainModel.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\obj\Debug\Registar.DomainModel.pdb
