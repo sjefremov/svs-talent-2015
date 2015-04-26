@@ -34,3 +34,5 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\b
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\Registar.DomainModel.pdb
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\Registar.DataLayer.pdb
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\EntityFramework.xml
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\EntityFramework.SqlServer.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\EntityFramework.SqlServer.xml

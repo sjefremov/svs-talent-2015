@@ -15,7 +15,7 @@ namespace Registar.DataLayer
             //if pimary key contains two columns we should do the the commented lines
             //this.ToTable("Bikes", "Data").HasKey(x=>new { Id=x.BikeId,Colour=x.Colour});
 
-            this.ToTable("Bikes", "Data").HasKey(p => p.BikeId);
+            this.ToTable("Bikes", "RegistarDb").HasKey(p => p.BikeId);
             this.Property(p => p.BikeId).HasColumnName("Id");
             //this.Ignore(p => p.IgnoreMe);
         }
