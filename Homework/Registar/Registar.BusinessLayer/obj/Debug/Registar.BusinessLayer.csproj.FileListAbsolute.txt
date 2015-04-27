@@ -12,3 +12,17 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.B
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.DomainModel.pdb
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\EntityFramework.xml
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.BusinessLayer.dll.config
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.BusinessLayer.dll
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.BusinessLayer.pdb
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.DataLayer.dll
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.DomainModel.dll
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.DataLayer.pdb
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.DomainModel.pdb
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\obj\Debug\Registar.BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\obj\Debug\Registar.BusinessLayer.dll
+C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\obj\Debug\Registar.BusinessLayer.pdb

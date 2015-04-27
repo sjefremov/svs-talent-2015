@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Registar.BusinessLayer.Contracts;
 using Registar.DataLayer;
 using Registar.DomainModel;
+using Registar.Repository.Interfaces;
+using Registar.DomainModel.Interfaces;
 
 namespace Registar.BusinessLayer.Handlers
 {
     internal class BikeSearchCommandHandler:CommandHandlerBase<BikeSearchCommand,BikeSearchResult>
     {
-        IDbContext context;
+        IDataContext context;
         public BikeSearchCommandHandler(IDbContext context)
         {
             this.context = context;
@@ -22,7 +24,13 @@ namespace Registar.BusinessLayer.Handlers
             //TODO Maybe this will cause problems in the future because of disposing the field context. Check this!
             using (IDbContext context = this.context)
             {
-                BikeSearchResult _result = new BikeSearchResult();
+                IBikeRepository repo = RepositoryManager.CreateRepository<IBikeRepository>();
+                //IUserRepository usrRepo = RepositoryManager.CreateRepository<IUserRepository>();
+
+                BikeSearchResult result = new BikeSearchResult();
+                result.Result = repo.SearchBikes() as List<Bike>;
+                return result;
+                //BikeSearchResult _result = new BikeSearchResult();
                 //List<Bike> bikes = new List<Bike>();
                 // ovde query to nema da se izvrsi i ako go izneseme nadvor ke nemame veke context i ke  padne programata,
                 //dokolku imame ToList() duri togas ke se izvrsi
@@ -53,9 +61,9 @@ namespace Registar.BusinessLayer.Handlers
                 //var bikes = context.Bikes.OrderBy(p => p.Id).Take(10).ToList();
                 //_result e napolnet so bikes
                 //var bikes = context.Bikes.ToList();
-                var bikes = context.Set<Bike>();
-                _result.Result = bikes.ToList();
-                return _result;
+                //var bikes = context.Set<Bike>();
+                //_result.Result = bikes.ToList();
+                //return _result;
             }
         }
     }

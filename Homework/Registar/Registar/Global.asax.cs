@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Registar.DomainModel;
+using Registar.Repository;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -19,6 +21,11 @@ namespace Registar
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+        private void InitProjects()
+        {
+            //
+            RepositoryManager.RegisterFactory(new DefaultRepositoryFactory());
         }
     }
 }

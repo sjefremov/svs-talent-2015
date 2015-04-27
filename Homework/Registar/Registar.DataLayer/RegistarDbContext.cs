@@ -14,7 +14,7 @@ namespace Registar.DataLayer
         public IDbSet<Bike> Bikes { get; set; }
 
         public IDbSet<User> Users { get; set; }
-        public RegistarDbContext() : base("BikeRegistarDb")
+        public RegistarDbContext() //: base("BikeRegistarDb")
         {
             Users = this.Set<User>();
             Bikes = this.Set<Bike>();
