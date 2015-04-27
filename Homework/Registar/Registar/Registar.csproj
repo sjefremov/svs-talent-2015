@@ -127,7 +127,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -158,6 +160,10 @@
     <ProjectReference Include="..\Registar.BusinessLayer\Registar.BusinessLayer.csproj">
       <Project>{173d84d5-e811-42dc-814c-e230c87bf5e5}</Project>
       <Name>Registar.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Registar.DataLayer\Registar.DataLayer.csproj">
+      <Project>{871a042f-4377-4101-93e4-9cd738e416a5}</Project>
+      <Name>Registar.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Registar.DomainModel\Registar.DomainModel.csproj">
       <Project>{599c2044-ea20-41fb-861e-c1a436df198a}</Project>

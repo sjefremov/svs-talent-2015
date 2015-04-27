@@ -12,51 +12,52 @@ namespace Registar.DomainModel
     public class Bike
     {
         //[Key]
-        public int BikeId { set; get; }
+        public long Id { get; set; }
 
-        [Required()]
-        [StringLength(maximumLength:200)]
-        public string RegNumber { set; get; }
+        [Required]
+        [StringLength(200)]
+        public string RegNumber { get; set; }
 
-        [StringLength(maximumLength: 200)]
-        public string Producer { set; get; }
+        [StringLength(200)]
+        public string Producer { get; set; }
 
-        [StringLength(maximumLength: 200)]
-        public string Model { set; get; }
+        [StringLength(200)]
+        public string Model { get; set; }
 
-        [StringLength(maximumLength: 200)]
+        [StringLength(200)]
         public string Type { get; set; }
 
-        public DateTime ProductionDate { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? ProductionDate { get; set; }
 
-        public DateTime PurchaseDate { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? PurchaseDate { get; set; }
 
-        [StringLength(maximumLength: 200)]
+        [StringLength(200)]
         public string FrameMaterial { get; set; }
 
-        public int Gears { get; set; }
+        public int? Gears { get; set; }
 
-        [StringLength(maximumLength: 200)]
-        public string Colour { set; get; }
+        [StringLength(200)]
+        public string Colour { get; set; }
 
-        [StringLength(maximumLength: 200)]
-        public string City { set; get; }
+        [StringLength(200)]
+        public string City { get; set; }
 
-        //TODO Status property should be of enum type
-        [StringLength(maximumLength: 200)]
+        [StringLength(200)]
         public string Status { get; set; }
 
-        //TODO Owner of the bike. Class for owners should be created.
+        public long OwnerId { get; set; }
 
-        [NotMapped]
-        public Object IgnoreMe { set; get; }
+        //[NotMapped]
+        //public Object IgnoreMe { set; get; }
 
-        [Timestamp, NotMapped]
-        public byte[] TimeStamp { set; get; }
+        //[Timestamp, NotMapped]
+        //public byte[] TimeStamp { set; get; }
 
-        [NotMapped]
+        //[NotMapped]
         //povrzuvame so tabela itn i ako sakame Bike so BikeHistory da ni pravi join vidi vo BikeSearchCommandHandler
-        public IEnumerable<BikeHistory> History { set; get; }
+        //public IEnumerable<BikeHistory> History { set; get; }
     }
     //[Table("BikeHistory")]
     public class BikeHistory

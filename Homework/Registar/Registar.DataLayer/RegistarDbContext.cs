@@ -12,16 +12,18 @@ namespace Registar.DataLayer
     public class RegistarDbContext:DbContext
     {
         public DbSet<Bike> Bikes { get; set; }
-        public RegistarDbContext() //: base("RegistarDb")
+
+        public DbSet<User> Users { get; set; }
+        public RegistarDbContext() : base("BikeRegistarDb")
         {
             Bikes = this.Set<Bike>();
+            Users = this.Set<User>();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new BikeConfiguration());
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //    modelBuilder.Configurations.Add(new BikeConfiguration());
+        //}
     }
 }

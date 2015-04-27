@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{56E952
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registar.DomainModel", "Registar.DomainModel\Registar.DomainModel.csproj", "{599C2044-EA20-41FB-861E-C1A436DF198A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JustForTesting", "JustForTesting", "{F6912F92-C4FF-4036-AA7E-36B1B34FCAA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{2B1156DF-9A39-4763-8BD4-AC03DB59F249}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{599C2044-EA20-41FB-861E-C1A436DF198A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{599C2044-EA20-41FB-861E-C1A436DF198A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{599C2044-EA20-41FB-861E-C1A436DF198A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B1156DF-9A39-4763-8BD4-AC03DB59F249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B1156DF-9A39-4763-8BD4-AC03DB59F249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B1156DF-9A39-4763-8BD4-AC03DB59F249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B1156DF-9A39-4763-8BD4-AC03DB59F249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +65,6 @@ Global
 		{173D84D5-E811-42DC-814C-E230C87BF5E5} = {26A230F8-6074-43EC-ACFC-B08426B2A3DE}
 		{871A042F-4377-4101-93E4-9CD738E416A5} = {8AA5BE35-173C-4615-A982-2D662E760DBA}
 		{599C2044-EA20-41FB-861E-C1A436DF198A} = {56E95245-CC04-4711-A576-5857B9598115}
+		{2B1156DF-9A39-4763-8BD4-AC03DB59F249} = {F6912F92-C4FF-4036-AA7E-36B1B34FCAA3}
 	EndGlobalSection
 EndGlobal
