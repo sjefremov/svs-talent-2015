@@ -16,8 +16,9 @@ namespace Registar.DataLayer
         public DbSet<User> Users { get; set; }
         public RegistarDbContext() : base("BikeRegistarDb")
         {
-            Bikes = this.Set<Bike>();
             Users = this.Set<User>();
+            Bikes = this.Set<Bike>();
+            
         }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)

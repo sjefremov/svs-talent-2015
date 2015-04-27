@@ -29,5 +29,7 @@ namespace Registar.DomainModel
 
         [StringLength(50)]
         public string PhoneNumber { get; set; }
+
+        public virtual IEnumerable<Bike> Bikes { get; set; }
     }
 }

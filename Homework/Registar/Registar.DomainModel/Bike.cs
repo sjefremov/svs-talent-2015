@@ -47,7 +47,9 @@ namespace Registar.DomainModel
         [StringLength(200)]
         public string Status { get; set; }
 
-        public long OwnerId { get; set; }
+        public long UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         //[NotMapped]
         //public Object IgnoreMe { set; get; }
@@ -60,9 +62,9 @@ namespace Registar.DomainModel
         //public IEnumerable<BikeHistory> History { set; get; }
     }
     //[Table("BikeHistory")]
-    public class BikeHistory
-    {
-        public int BikeId { set; get; }
-        public DateTime Date { set; get; }
-    }
+    //public class BikeHistory
+    //{
+    //    public int BikeId { set; get; }
+    //    public DateTime Date { set; get; }
+    //}
 }
