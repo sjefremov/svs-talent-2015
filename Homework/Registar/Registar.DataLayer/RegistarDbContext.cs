@@ -9,11 +9,11 @@ using Registar.DomainModel;
 
 namespace Registar.DataLayer
 {
-    public class RegistarDbContext:DbContext
+    public class RegistarDbContext:DbContext,IDbContext
     {
-        public DbSet<Bike> Bikes { get; set; }
+        public IDbSet<Bike> Bikes { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public IDbSet<User> Users { get; set; }
         public RegistarDbContext() : base("BikeRegistarDb")
         {
             Users = this.Set<User>();
@@ -26,5 +26,16 @@ namespace Registar.DataLayer
         //    base.OnModelCreating(modelBuilder);
         //    modelBuilder.Configurations.Add(new BikeConfiguration());
         //}
+
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class, IsEntity
+        {
+            return base.Set<TEntity>();  
+        }
+    }
+
+    public interface IDbContext:IDisposable
+    {
+        IDbSet<TEntity> Set<TEntity>() where TEntity : class, IsEntity;  
+        int SaveChanges();
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Registar.DomainModel
 {
-    public class User
+    public class User:IsEntity
     {
         public long Id { get; set; }
 

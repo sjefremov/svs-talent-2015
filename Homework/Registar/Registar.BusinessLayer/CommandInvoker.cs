@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Registar.BusinessLayer.Contracts;
 using Registar.BusinessLayer.Handlers;
+using Registar.DataLayer;
 
 namespace Registar.BusinessLayer
 {
@@ -42,7 +43,7 @@ namespace Registar.BusinessLayer
         {
             if (typeof (TRequest) == typeof (BikeSearchCommand))
             {
-                return new BikeSearchCommandHandler();
+                return new BikeSearchCommandHandler(new RegistarDbContext());
             }
             //
             return null;

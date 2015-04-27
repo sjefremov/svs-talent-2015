@@ -11,10 +11,16 @@ namespace Registar.BusinessLayer.Handlers
 {
     internal class BikeSearchCommandHandler:CommandHandlerBase<BikeSearchCommand,BikeSearchResult>
     {
+        IDbContext context;
+        public BikeSearchCommandHandler(IDbContext context)
+        {
+            this.context = context;
+        }
         protected override BikeSearchResult ExecuteCommand(BikeSearchCommand command)
         {
             //ova se koristi za da koga ke zavrsi metodot da se zatvori konekcijata do bazata
-            using (RegistarDbContext context = new RegistarDbContext())
+            //TODO Maybe this will cause problems in the future because of disposing the field context. Check this!
+            using (IDbContext context = this.context)
             {
                 BikeSearchResult _result = new BikeSearchResult();
                 //List<Bike> bikes = new List<Bike>();
@@ -46,8 +52,9 @@ namespace Registar.BusinessLayer.Handlers
 
                 //var bikes = context.Bikes.OrderBy(p => p.Id).Take(10).ToList();
                 //_result e napolnet so bikes
-                var bikes = context.Bikes.ToList();
-                _result.Result = bikes;
+                //var bikes = context.Bikes.ToList();
+                var bikes = context.Set<Bike>();
+                _result.Result = bikes.ToList();
                 return _result;
             }
         }

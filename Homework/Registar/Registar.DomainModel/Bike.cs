@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Registar.DomainModel
 {
     [Table(name:"Bikes")]
-    public class Bike
+    public class Bike:IsEntity
     {
         //[Key]
         public long Id { get; set; }
