@@ -1,8 +1,4 @@
-﻿using Registar.DataLayer;
-using Registar.DomainModel;
-using Registar.Factory;
-using Registar.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -19,18 +15,10 @@ namespace Registar
     {
         protected void Application_Start()
         {
-            RepositoryManager.RegisterFactory(new DefaultRepositoryFactory());
-            DataContextManager.RegisterFactory(new DefaultDataContextFactory());
             AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-        }
-        private void InitProjects()
-        {
-            //
-            RepositoryManager.RegisterFactory(new DefaultRepositoryFactory());
-            DataContextManager.RegisterFactory(new DefaultDataContextFactory());
         }
     }
 }

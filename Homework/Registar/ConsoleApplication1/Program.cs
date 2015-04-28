@@ -33,11 +33,11 @@ namespace ConsoleApplication1
             //    Console.WriteLine(count);
             //    Console.ReadLine();
             //}
-            //RepositoryManager.RegisterFactory(new DefaultRepositoryFactory());
-            //DataContextManager.RegisterFactory(new DefaultDataContextFactory());
-            //BikeSearchCommand _command = new BikeSearchCommand();
-            //BikeSearchResult _result = CommandInvoker.InvokeCommand<BikeSearchCommand, BikeSearchResult>(_command);
-            //Console.WriteLine(_result.Result);
+            RepositoryManager.RegisterFactory(new DefaultRepositoryFactory());
+            DataContextManager.RegisterFactory(new DefaultDataContextFactory());
+            BikeSearchCommand _command = new BikeSearchCommand();
+            BikeSearchResult _result = CommandInvoker.InvokeCommand<BikeSearchCommand, BikeSearchResult>(_command);
+            Console.WriteLine(_result.Result);
             //Console.ReadLine();
             /*
     * Welcome to this NLog demo
@@ -67,11 +67,11 @@ namespace ConsoleApplication1
             //Console.Out.WriteLine("");
             //Console.Out.WriteLine("Done logging.");
 
-            Ninject.IKernel kernal = new StandardKernel();
-            kernal.Bind<IWeapon>().To<Ninja>();
-            var instance = kernal.Get<sourav>();
-            instance.Attack();
-            Console.ReadLine(); 
+            //Ninject.IKernel kernal = new StandardKernel();
+            //kernal.Bind<IWeapon>().To<Ninja>();
+            //var instance = kernal.Get<sourav>();
+            //instance.Attack();
+            //Console.ReadLine(); 
             Console.Out.WriteLine("Hit any key to exit");
             Console.ReadKey();
         }
