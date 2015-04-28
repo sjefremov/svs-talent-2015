@@ -35,3 +35,5 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApp
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\NLog.config
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\NLog.dll
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\NLog.xml
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Ninject.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Ninject.xml
