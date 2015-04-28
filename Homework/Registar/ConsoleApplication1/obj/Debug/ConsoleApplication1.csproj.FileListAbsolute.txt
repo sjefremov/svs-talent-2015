@@ -26,3 +26,9 @@ C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleA
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Registar.BusinessLayer.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Registar.Repository.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Registar.BusinessLayer.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Registar.Repository.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Registar.Factory.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\ConsoleApplication1\bin\Debug\Registar.Factory.pdb

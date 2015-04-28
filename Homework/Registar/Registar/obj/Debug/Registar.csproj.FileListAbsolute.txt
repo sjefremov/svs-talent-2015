@@ -74,3 +74,7 @@ C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\obj\Debug\Registar.csprojResolveAssemblyReference.cache
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\obj\Debug\Registar.dll
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\obj\Debug\Registar.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\Registar.Repository.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\Registar.Repository.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\Registar.Factory.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar\bin\Registar.Factory.pdb

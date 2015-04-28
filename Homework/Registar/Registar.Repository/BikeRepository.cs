@@ -1,11 +1,13 @@
-﻿using Registar.DomainModel;
-using Registar.DomainModel.Interfaces;
+﻿using Registar.Factory;
+using Registar.DomainModel;
+using Registar.Factory.Interfaces;
 using Registar.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Registar.DataLayer;
 
 namespace Registar.Repository
 {
@@ -15,6 +17,7 @@ namespace Registar.Repository
         {
             using (var context = DataContextManager.CreateContext<IDataContext>())
             {
+                return context.GetIDBSet<Bike>().ToList();   
             }
         }
     }

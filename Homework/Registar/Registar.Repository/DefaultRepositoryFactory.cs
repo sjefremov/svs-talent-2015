@@ -1,4 +1,4 @@
-﻿using Registar.DomainModel.Interfaces;
+﻿using Registar.Factory.Interfaces;
 using Registar.Repository.Interfaces;
 using System;
 using System.Collections.Generic;

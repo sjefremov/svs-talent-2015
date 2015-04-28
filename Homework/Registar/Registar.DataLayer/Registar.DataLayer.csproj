@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BikeConfiguration.cs" />
+    <Compile Include="IDataContext.cs" />
     <Compile Include="RegistarDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

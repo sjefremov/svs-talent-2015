@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Registar.BusinessLayer\Registar.BusinessLayer.csproj">
+      <Project>{173d84d5-e811-42dc-814c-e230c87bf5e5}</Project>
+      <Name>Registar.BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Registar.DataLayer\Registar.DataLayer.csproj">
       <Project>{871a042f-4377-4101-93e4-9cd738e416a5}</Project>
       <Name>Registar.DataLayer</Name>
@@ -68,6 +72,14 @@
     <ProjectReference Include="..\Registar.DomainModel\Registar.DomainModel.csproj">
       <Project>{599c2044-ea20-41fb-861e-c1a436df198a}</Project>
       <Name>Registar.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Registar.Factory\Registar.Factory.csproj">
+      <Project>{ad1bb350-2693-4dcf-94c1-481b305f473f}</Project>
+      <Name>Registar.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Registar.Repository\Registar.Repository.csproj">
+      <Project>{e521302b-39af-4edb-b194-f3748e00c357}</Project>
+      <Name>Registar.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

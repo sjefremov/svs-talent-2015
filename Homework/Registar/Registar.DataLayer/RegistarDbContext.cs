@@ -9,12 +9,12 @@ using Registar.DomainModel;
 
 namespace Registar.DataLayer
 {
-    public class RegistarDbContext:DbContext,IDbContext
+    public class RegistarDbContext:DbContext,IDataContext
     {
         public IDbSet<Bike> Bikes { get; set; }
 
         public IDbSet<User> Users { get; set; }
-        public RegistarDbContext() //: base("BikeRegistarDb")
+        public RegistarDbContext() : base("BikeRegistarDb")
         {
             Users = this.Set<User>();
             Bikes = this.Set<Bike>();
@@ -27,15 +27,17 @@ namespace Registar.DataLayer
         //    modelBuilder.Configurations.Add(new BikeConfiguration());
         //}
 
-        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class, IsEntity
+        public IDbSet<TEntity> GetIDBSet<TEntity>() where TEntity : class, IsEntity
         {
-            return base.Set<TEntity>();  
+            if (typeof(TEntity)==typeof(Bike))
+            {
+                return this.Bikes as IDbSet<TEntity>;
+            }
+            if (typeof(TEntity)==typeof(User))
+            {
+                return this.Users as IDbSet<TEntity>;
+            }
+            return null;
         }
-    }
-
-    public interface IDbContext:IDisposable
-    {
-        IDbSet<TEntity> Set<TEntity>() where TEntity : class, IsEntity;  
-        int SaveChanges();
     }
 }

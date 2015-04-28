@@ -64,6 +64,10 @@
       <Project>{599c2044-ea20-41fb-861e-c1a436df198a}</Project>
       <Name>Registar.DomainModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Registar.Factory\Registar.Factory.csproj">
+      <Project>{ad1bb350-2693-4dcf-94c1-481b305f473f}</Project>
+      <Name>Registar.Factory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Registar.Repository\Registar.Repository.csproj">
       <Project>{e521302b-39af-4edb-b194-f3748e00c357}</Project>
       <Name>Registar.Repository</Name>

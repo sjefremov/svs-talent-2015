@@ -43,7 +43,7 @@ namespace Registar.BusinessLayer
         {
             if (typeof (TRequest) == typeof (BikeSearchCommand))
             {
-                return new BikeSearchCommandHandler(new RegistarDbContext());
+                return new BikeSearchCommandHandler();
             }
             //
             return null;

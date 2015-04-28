@@ -7,29 +7,26 @@ using Registar.BusinessLayer.Contracts;
 using Registar.DataLayer;
 using Registar.DomainModel;
 using Registar.Repository.Interfaces;
-using Registar.DomainModel.Interfaces;
+using Registar.Factory.Interfaces;
+using Registar.Factory;
 
 namespace Registar.BusinessLayer.Handlers
 {
     internal class BikeSearchCommandHandler:CommandHandlerBase<BikeSearchCommand,BikeSearchResult>
     {
-        IDataContext context;
-        public BikeSearchCommandHandler(IDbContext context)
-        {
-            this.context = context;
-        }
         protected override BikeSearchResult ExecuteCommand(BikeSearchCommand command)
         {
-            //ova se koristi za da koga ke zavrsi metodot da se zatvori konekcijata do bazata
-            //TODO Maybe this will cause problems in the future because of disposing the field context. Check this!
-            using (IDbContext context = this.context)
-            {
-                IBikeRepository repo = RepositoryManager.CreateRepository<IBikeRepository>();
-                //IUserRepository usrRepo = RepositoryManager.CreateRepository<IUserRepository>();
+            IBikeRepository repo = RepositoryManager.CreateRepository<IBikeRepository>();
+            //IUserRepository usrRepo = RepositoryManager.CreateRepository<IUserRepository>();
 
-                BikeSearchResult result = new BikeSearchResult();
-                result.Result = repo.SearchBikes() as List<Bike>;
-                return result;
+            BikeSearchResult result = new BikeSearchResult();
+            result.Result = repo.SearchBikes() as List<Bike>;
+            return result;
+            //ova se koristi za da koga ke zavrsi metodot da se zatvori konekcijata do bazata
+            //Maybe this will cause problems in the future because of disposing the field context. Check this!
+            //using (IDbContext context = this.context)
+            //{
+                
                 //BikeSearchResult _result = new BikeSearchResult();
                 //List<Bike> bikes = new List<Bike>();
                 // ovde query to nema da se izvrsi i ako go izneseme nadvor ke nemame veke context i ke  padne programata,
@@ -64,7 +61,7 @@ namespace Registar.BusinessLayer.Handlers
                 //var bikes = context.Set<Bike>();
                 //_result.Result = bikes.ToList();
                 //return _result;
-            }
+            //}
         }
     }
 }

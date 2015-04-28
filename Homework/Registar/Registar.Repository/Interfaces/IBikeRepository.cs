@@ -1,5 +1,5 @@
 ﻿using Registar.DomainModel;
-using Registar.DomainModel.Interfaces;
+using Registar.Factory.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

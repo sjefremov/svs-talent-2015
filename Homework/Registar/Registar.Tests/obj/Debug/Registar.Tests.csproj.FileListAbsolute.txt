@@ -31,11 +31,7 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.T
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.DomainModel.dll
-C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.DataLayer.dll
-C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\EntityFramework.dll
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.DomainModel.pdb
-C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.DataLayer.pdb
-C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\EntityFramework.xml
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.Tests.dll.config
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.Tests.dll
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.Tests.pdb
@@ -74,3 +70,11 @@ C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\obj\Debug\Registar.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\obj\Debug\Registar.Tests.dll
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\obj\Debug\Registar.Tests.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.Repository.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.Repository.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.Factory.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.Factory.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.DataLayer.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Tests\bin\Debug\Registar.DataLayer.pdb
