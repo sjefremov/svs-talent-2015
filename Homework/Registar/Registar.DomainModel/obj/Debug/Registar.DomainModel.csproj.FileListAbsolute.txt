@@ -17,3 +17,7 @@ C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\obj\Debug\Registar.DomainModel.csprojResolveAssemblyReference.cache
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\obj\Debug\Registar.DomainModel.dll
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\obj\Debug\Registar.DomainModel.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\NLog.config
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\NLog.dll
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\bin\Debug\NLog.xml
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DomainModel\obj\Debug\Registar.DomainModel.csprojResolveAssemblyReference.cache

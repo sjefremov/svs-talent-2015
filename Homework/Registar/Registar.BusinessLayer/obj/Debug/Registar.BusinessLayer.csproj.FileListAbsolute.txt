@@ -30,3 +30,4 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.B
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.Repository.pdb
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.Factory.dll
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\Registar.Factory.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.BusinessLayer\bin\Debug\NLog.config

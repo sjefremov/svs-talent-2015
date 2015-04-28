@@ -22,3 +22,4 @@ C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DataLayer\obj\Debug\Registar.DataLayer.csprojResolveAssemblyReference.cache
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DataLayer\obj\Debug\Registar.DataLayer.dll
 C:\Users\Student\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DataLayer\obj\Debug\Registar.DataLayer.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.DataLayer\bin\Debug\NLog.config

@@ -12,3 +12,4 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.F
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Factory\obj\Debug\Registar.Factory.csprojResolveAssemblyReference.cache
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Factory\bin\Debug\Registar.DataLayer.dll
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Factory\bin\Debug\Registar.DataLayer.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar\Registar.Factory\bin\Debug\NLog.config

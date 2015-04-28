@@ -1,0 +1,6 @@
+2015-04-28 08:47:39.1065 TRACE Trace: The chatter of people on the street
+2015-04-28 08:47:39.2745 DEBUG Debug: Where are you going and why?
+2015-04-28 08:47:39.2745 INFO Info: What bus station you're at.
+2015-04-28 08:47:39.2745 WARN Warn: You're playing on the phone and not looking up for your bus
+2015-04-28 08:47:39.2745 ERROR Error: You get on the wrong bus.
+2015-04-28 08:47:39.4845 FATAL Fatal: You are run over by the bus.
