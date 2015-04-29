@@ -6,43 +6,36 @@ namespace ConsoleApplication1
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("data.Bikes")]
     public partial class Bike
     {
-        public long Id { get; set; }
+        public int BikeId { get; set; }
+
+        public int BikeOwnerId { get; set; }
 
         [Required]
-        [StringLength(200)]
+        [StringLength(50)]
         public string RegNumber { get; set; }
 
-        [StringLength(200)]
-        public string Producer { get; set; }
-
-        [StringLength(200)]
-        public string Model { get; set; }
-
-        [StringLength(200)]
-        public string Type { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? ProductionDate { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? PurchaseDate { get; set; }
-
-        [StringLength(200)]
-        public string FrameMaterial { get; set; }
-
-        public int? Gears { get; set; }
-
-        [StringLength(200)]
+        [StringLength(20)]
         public string Colour { get; set; }
 
-        [StringLength(200)]
+        [StringLength(50)]
+        public string Producer { get; set; }
+
+        [StringLength(20)]
+        public string Model { get; set; }
+
+        [StringLength(50)]
         public string City { get; set; }
 
-        [StringLength(200)]
-        public string Status { get; set; }
+        public byte? SpeedCount { get; set; }
 
-        public long OwnerId { get; set; }
+        [Column(TypeName = "timestamp")]
+        [MaxLength(8)]
+        [Timestamp]
+        public byte[] TStamp { get; set; }
+
+        public virtual BikeOwner BikeOwner { get; set; }
     }
 }

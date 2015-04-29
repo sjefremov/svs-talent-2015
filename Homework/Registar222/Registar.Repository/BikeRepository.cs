@@ -54,5 +54,11 @@ namespace Registar.Repository
             if (pageIndex != 0)
                 skip = (pageIndex - 1) * take;
         }
+
+
+        public void CreateBike(BusinessLayer.Contracts.BikeCreateCommand command)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

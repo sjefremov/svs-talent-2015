@@ -53,6 +53,12 @@ namespace Registar.BusinessLayer.Tests
             List<Bike> result = new List<Bike>();
             return result;
         }
+
+
+        public void CreateBike(BikeCreateCommand command)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class BikeRepoStubFactory:IRepositoryFactory

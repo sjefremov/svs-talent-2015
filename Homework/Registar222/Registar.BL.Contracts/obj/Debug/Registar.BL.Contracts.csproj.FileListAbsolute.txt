@@ -6,3 +6,11 @@ C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Regista
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\obj\Debug\Registar.BL.Contracts.csprojResolveAssemblyReference.cache
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\obj\Debug\Registar.BL.Contracts.dll
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\obj\Debug\Registar.BL.Contracts.pdb
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\bin\Debug\NLog.config
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\bin\Debug\Registar.BL.Contracts.dll
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\bin\Debug\Registar.BL.Contracts.pdb
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\bin\Debug\Registar.DomainModel.dll
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\bin\Debug\Registar.DomainModel.pdb
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\obj\Debug\Registar.BL.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\obj\Debug\Registar.BL.Contracts.dll
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.BL.Contracts\obj\Debug\Registar.BL.Contracts.pdb

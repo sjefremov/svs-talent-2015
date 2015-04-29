@@ -51,6 +51,18 @@
                 <!--<td>this.ViewBag.SomeNewProperty</td>-->
             </tr>                    
         }
-
+        
     </tbody>
 </table>
+A:<input id="sideA" type="text" /><br />
+B:<input id="sideB" type="text" /><br />
+<input id="btnCalculateArea" type="button" value="Calculate Area" onclick="Calculate()" /><br />
+<span>result:&nbsp;</span><span id="resultSpan"></span>
+<script type="text/javascript">
+    function Calculate() {
+        a = document.getElementById("sideA").value;
+        b = document.getElementById("sideB").value;
+        result = a * b;
+        document.getElementById("resultSpan").innerHTML = result;
+    }
+</script>
