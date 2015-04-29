@@ -20,7 +20,7 @@ namespace Registar.BusinessLayer.Handlers
             //IUserRepository usrRepo = RepositoryManager.CreateRepository<IUserRepository>();
 
             BikeSearchResult result = new BikeSearchResult();
-            result.Result = repo.SearchBikes() as List<Bike>;
+            result.Result = repo.SearchBikes(command) as List<Bike>;
             return result;
             //ova se koristi za da koga ke zavrsi metodot da se zatvori konekcijata do bazata
             //Maybe this will cause problems in the future because of disposing the field context. Check this!

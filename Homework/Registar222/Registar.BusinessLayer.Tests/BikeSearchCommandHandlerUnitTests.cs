@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Registar.Repository.Interfaces;
-using Registar.Factory.Interfaces;
 using System.Collections.Generic;
 using Registar.DomainModel;
 using Registar.BusinessLayer.Contracts;
-using Registar.Factory;
 using Registar.BusinessLayer.Handlers;
+using Registar.Common;
+using Registar.Common.Interfaces;
 
 namespace Registar.BusinessLayer.Tests
 {
@@ -21,9 +21,9 @@ namespace Registar.BusinessLayer.Tests
             BikeSearchCommandHandler handler = new BikeSearchCommandHandler();
             BikeSearchCommand command = new BikeSearchCommand();
             //exercise
-            BikeSearchResult result = handler.Execute(command) as BikeSearchResult;
+            BikeSearchResult result =  handler.Execute(command) as BikeSearchResult;
             //verify
-            Assert.IsNotNull(result, "SmokeTest expectes to return not null result!");
+            Assert.IsNotNull(result,"SmokeTest expectes to return not null result!");
             //cleanup
             RepositoryManager.RegisterFactory(null);
         }
@@ -37,7 +37,7 @@ namespace Registar.BusinessLayer.Tests
             BikeSearchCommandHandler handler = new BikeSearchCommandHandler();
             BikeSearchCommand command = new BikeSearchCommand();
             //exercise
-            BikeSearchResult result = handler.Execute(command) as BikeSearchResult;
+            BikeSearchResult result = handler.Execute(command) as BikeSearchResult;            
             //
             //Assert.IsNotNull(result);
         }
@@ -45,7 +45,7 @@ namespace Registar.BusinessLayer.Tests
 
     }
 
-    public class BikeRepoStub : IBikeRepository
+    public class BikeRepoStub:IBikeRepository
     {
 
         public System.Collections.Generic.IList<DomainModel.Bike> SearchBikes(BikeSearchCommand command)
@@ -53,20 +53,15 @@ namespace Registar.BusinessLayer.Tests
             List<Bike> result = new List<Bike>();
             return result;
         }
-
-        public System.Collections.Generic.IList<Registar.DomainModel.Bike> SearchBikes()
-        {
-            throw new NotImplementedException();
-        }
     }
 
-    public class BikeRepoStubFactory : IRepositoryFactory
+    public class BikeRepoStubFactory:IRepositoryFactory
     {
 
         public TRepository CreateRepository<TRepository>() where TRepository : IRepository
         {
             BikeRepoStub result = new BikeRepoStub();
-            return (TRepository)(object)result;
+            return (TRepository) (object)result;
         }
     }
 }

@@ -55,6 +55,10 @@
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Registar.BL.Contracts\Registar.BL.Contracts.csproj">
+      <Project>{19c97e10-4ef7-439a-a1bc-479ecc47946d}</Project>
+      <Name>Registar.BL.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Registar.Common\Registar.Common.csproj">
       <Project>{c0e97ab5-6fb0-4751-820b-5e19e266af2f}</Project>
       <Name>Registar.Common</Name>
