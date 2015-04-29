@@ -1,0 +1,56 @@
+﻿@model System.Collections.Generic.IEnumerable<Registar.DomainModel.Bike>
+
+@{
+    Layout = "../MasterPage.cshtml";
+}
+
+@section HeaderScripts
+{
+    <script type="text/javascript"></script>  
+    bla bla  
+}
+@this.Html.Partial("_PartialView")
+
+<table>
+    <thead>
+        <tr>
+        <tr>
+            <th>RegNumber</th>
+            <th>Producer</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>ProductionDate</th>
+            <th>PurchaseDate</th>
+            <th>FrameMaterial</th>
+            <th>Gears</th>
+            <th>Colour</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Owner</th>
+            <!--<td>//this.ViewBag.SomeNewProperty</td>-->
+        </tr> 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bike in this.Model)
+        {
+            <tr>
+                <td>@bike.RegNumber</td>
+                <td>@bike.Producer</td>
+                <td>@bike.Model</td>
+                <td>@bike.Type</td>
+                <td>@bike.ProductionDate</td>
+                <td>@bike.PurchaseDate</td>
+                <td>@bike.FrameMaterial</td>
+                <td>@bike.Gears</td>
+                <td>@bike.Colour</td>
+                <td>@bike.City</td>
+                <td>@bike.Status</td>
+                <!--<td> Here Got problems. Should be solved with implementing singleton on RegistarDbContext
+                    //bike.User.Username</td>
+                <!--<td>this.ViewBag.SomeNewProperty</td>-->
+            </tr>                    
+        }
+
+    </tbody>
+</table>
