@@ -6,7 +6,8 @@
 
 @section HeaderScripts
 {
-    <script type="text/javascript"></script>  
+    <script type="text/javascript"></script>    
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
     bla bla  
 }
 @this.Html.Partial("_PartialView")
@@ -54,15 +55,25 @@
         
     </tbody>
 </table>
-A:<input id="sideA" type="text" /><br />
-B:<input id="sideB" type="text" /><br />
-<input id="btnCalculateArea" type="button" value="Calculate Area" onclick="Calculate()" /><br />
-<span>result:&nbsp;</span><span id="resultSpan"></span>
+<div>
+    <span>A:&nbsp;</span><input id="sideA" type="text" /><br />
+    <span>B:&nbsp;</span><input id="sideB" type="text" /><br />
+    <input id="btnCalculateArea" type="button" value="Calculate Area" onclick="Calculate()" /><br />
+    <span>result:&nbsp;</span><span id="resultSpan"></span>
+</div>
 <script type="text/javascript">
     function Calculate() {
-        a = document.getElementById("sideA").value;
-        b = document.getElementById("sideB").value;
-        result = a * b;
-        document.getElementById("resultSpan").innerHTML = result;
+        //a = document.getElementById("sideA").value;
+        //b = document.getElementById("sideB").value;
+        //result = a * b;
+        //document.getElementById("resultSpan").innerHTML = result;
     }
+    $(document).ready(function () {
+        $("#btnCalculateArea").click(function () {
+            a = $("#sideA").val();
+            b = $("#sideB").val();
+            result = a * b;
+            $("#resultSpan").html(result);
+        });
+    });
 </script>
