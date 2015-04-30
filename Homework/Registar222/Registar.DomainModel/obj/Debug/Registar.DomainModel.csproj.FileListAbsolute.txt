@@ -59,3 +59,4 @@ C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar
 C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DomainModel\obj\Debug\Registar.DomainModel.dll
 C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DomainModel\obj\Debug\Registar.DomainModel.pdb
 C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DomainModel\obj\Debug\Registar.DomainModel.csprojResolveAssemblyReference.cache
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DomainModel\obj\Debug\Registar.DomainModel.csprojResolveAssemblyReference.cache

@@ -1,0 +1,9 @@
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\bin\AngularDemo.dll.config
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\bin\AngularDemo.dll
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\bin\AngularDemo.pdb
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\bin\AngularDemo.xml
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\obj\Debug\AngularDemo.Resources.resources
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\obj\Debug\AngularDemo.vbproj.GenerateResource.Cache
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\obj\Debug\AngularDemo.dll
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\obj\Debug\AngularDemo.xml
+C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\AngularDemo\AngularDemo\obj\Debug\AngularDemo.pdb

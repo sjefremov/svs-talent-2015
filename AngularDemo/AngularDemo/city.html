@@ -1,0 +1,19 @@
+﻿<input type="search" placeholder="Search City" ng-model="cityName" />
+<table>
+    <thead>
+        <tr>
+            <th ng-click="sort('id')">#</th>
+            <th ng-click="sort('name')">Name</th>
+            <th ng-click="sort('coord.lon')">Longitude</th>
+            <th ng-click="sort('coord.lat')">Latitude</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="city in cities | filter:city | orderBy: sortColumn | limitTo:5">
+            <td>{{city.id}}</td>
+            <td>{{city.name}}</td>
+            <td>{{city.coord.lon | number:2}}</td>
+            <td>{{city.coord.lat | number:1}}</td>
+        </tr>
+    </tbody>
+</table>
