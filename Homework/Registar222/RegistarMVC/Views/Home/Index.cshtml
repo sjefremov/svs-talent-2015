@@ -6,13 +6,16 @@
 
 @section HeaderScripts
 {
-    <script type="text/javascript"></script>    
+    <script type="text/javascript"></script>  
     <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 
     bla bla  
 }
 @this.Html.Partial("_PartialView")
 
-<table>
+<table id="bikeResultsTable">
     <thead>
         <tr>
         <tr>
@@ -27,30 +30,33 @@
             <th>Colour</th>
             <th>City</th>
             <th>Status</th>
-            <th>Owner</th>
+            <th>Owner Id</th>
             <!--<td>//this.ViewBag.SomeNewProperty</td>-->
         </tr> 
         </tr>
     </thead>
     <tbody>
-        @foreach (var bike in this.Model)
+        @if (this.Model != null)
         {
-            <tr>
-                <td>@bike.RegNumber</td>
-                <td>@bike.Producer</td>
-                <td>@bike.Model</td>
-                <td>@bike.Type</td>
-                <td>@bike.ProductionDate</td>
-                <td>@bike.PurchaseDate</td>
-                <td>@bike.FrameMaterial</td>
-                <td>@bike.Gears</td>
-                <td>@bike.Colour</td>
-                <td>@bike.City</td>
-                <td>@bike.Status</td>
-                <!--<td> Here Got problems. Should be solved with implementing singleton on RegistarDbContext
-                    //bike.User.Username</td>
-                <!--<td>this.ViewBag.SomeNewProperty</td>-->
-            </tr>                    
+            foreach (var bike in this.Model)
+            {
+                <tr>
+                    <td>@bike.RegNumber</td>
+                    <td>@bike.Producer</td>
+                    <td>@bike.Model</td>
+                    <td>@bike.Type</td>
+                    <td>@bike.ProductionDate</td>
+                    <td>@bike.PurchaseDate</td>
+                    <td>@bike.FrameMaterial</td>
+                    <td>@bike.Gears</td>
+                    <td>@bike.Colour</td>
+                    <td>@bike.City</td>
+                    <td>@bike.Status</td>
+                    <!--<td> Here Got problems. Should be solved with implementing singleton on RegistarDbContext
+                        //bike.User.Username</td>
+                    <!--<td>this.ViewBag.SomeNewProperty</td>-->
+                </tr>                    
+            }
         }
         
     </tbody>
@@ -75,5 +81,37 @@
             result = a * b;
             $("#resultSpan").html(result);
         });
+        $.ajax({
+            url: '@Url.Action("Index","Home")',
+            error: function () {
+                alert('An error has occurred while retreiving data from server.');
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                data = $.parseJSON(data);
+                $.each(data, function (i, bikeItem) {
+                    $('#bikeResultsTable tbody').append('<tr><td>' + bikeItem.RegNumber + '</td>\
+                    <td>' + bikeItem.Producer +'</td>\
+                    <td>' + bikeItem.Model + '</td>\
+                    <td>' + bikeItem.Type + '</td>\
+                    <td>' + formatJSONDate(new Date(parseInt(bikeItem.ProductionDate.substr(6)))) + '</td>\
+                    <td>' + formatJSONDate(new Date(parseInt(bikeItem.PurchaseDate.substr(6)))) + '</td>\
+                    <td>' + bikeItem.FrameMaterial + '</td>\
+                    <td>' + bikeItem.Gears + '</td>\
+                    <td>' + bikeItem.Colour + '</td>\
+                    <td>' + bikeItem.City + '</td>\
+                    <td>' + bikeItem.Status + '</td>\
+                    <td>' + bikeItem.UserId + '</td></tr>');
+                });
+                console.log(data);
+            },
+            type: 'POST'
+        });
     });
+    function formatJSONDate(oldDate) {
+        var date = new Date(oldDate)
+        var newDate = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+        return newDate;
+    }
 </script>

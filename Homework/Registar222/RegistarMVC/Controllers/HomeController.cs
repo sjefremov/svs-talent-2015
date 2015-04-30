@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Registar.BusinessLayer;
 using Registar.BusinessLayer.Contracts;
 using RegistarMVC.Models;
+using System.Web.Script.Serialization;
 
 namespace RegistarMVC.Controllers
 {
@@ -13,14 +14,22 @@ namespace RegistarMVC.Controllers
     {
         //
         // GET: /Home/
-
         public ActionResult Index()
+        {
+            return View();
+        }
+        [ActionName("Index"), HttpPost]
+        public ActionResult IndexPost()
         {
             //call BL
             BikeSearchCommand _command = new BikeSearchCommand();
             BikeSearchResult _result = CommandInvoker.InvokeCommand<BikeSearchCommand, BikeSearchResult>(_command);
             //
-            return View(_result.Result);
+            //return new JsonResult() { Data = _result.Result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var _jsonSerializer = new JavaScriptSerializer();
+            var _jsonString = _jsonSerializer.Serialize(_result.Result);
+            return new JsonResult() { Data = _jsonString, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            //JsonResult _jsonResult = Json("Response from Post", JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Index2()

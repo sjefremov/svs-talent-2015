@@ -50,7 +50,8 @@ namespace Registar.DomainModel
 
         public long UserId { get; set; }
 
-        public virtual User User { get; set; }
+        //TODO This is commented because it causes problems when displaying results for bikes because of lazy loading.
+        //public virtual User User { get; set; }
 
         //[NotMapped]
         //public Object IgnoreMe { set; get; }

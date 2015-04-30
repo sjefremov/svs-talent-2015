@@ -66,3 +66,5 @@ C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar
 C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DataLayer\obj\Debug\Registar.DataLayer.csprojResolveAssemblyReference.cache
 C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DataLayer\obj\Debug\Registar.DataLayer.dll
 C:\Users\code\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DataLayer\obj\Debug\Registar.DataLayer.pdb
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DataLayer\obj\Debug\Registar.DataLayer.Migrations.InitialCreate.resources
+C:\Users\Stole\Desktop\Stole\GitHub\svs-talent-2015\Homework\Registar222\Registar.DataLayer\obj\Debug\Registar.DataLayer.csproj.GenerateResource.Cache
